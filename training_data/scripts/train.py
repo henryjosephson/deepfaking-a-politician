@@ -180,7 +180,7 @@ def main():
     # init the trainer and 🚀
     print("starting step 12: init trainer")
 
-    os.environ["TRAINER_TELEMETRY"] = 0 # should avoid a telemetry ping?
+    os.environ["TRAINER_TELEMETRY"] = "0" # should avoid a telemetry ping?
 
     trainer = Trainer(
         TrainerArgs(
