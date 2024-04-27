@@ -179,6 +179,9 @@ def main():
 
     # init the trainer and 🚀
     print("starting step 12: init trainer")
+
+    os.environ["TRAINER_TELEMETRY"] = 0 # should avoid a telemetry ping?
+
     trainer = Trainer(
         TrainerArgs(
             restore_path=None,  # xtts checkpoint is restored via xtts_checkpoint key so no need of restore it using Trainer restore_path parameter
