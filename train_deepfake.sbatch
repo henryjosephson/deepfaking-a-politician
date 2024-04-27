@@ -5,9 +5,11 @@
 #SBATCH --account=pi-wltrimbl
 #SBATCH --time=0-01:00:00
 #SBATCH --partition=gpu
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=2000
 #SBATCH --gres=gpu:1
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=henryj@uchicago.edu
+#SBATCH --mail-user=henryj@rcc.uchicago.edu
 
 module load ffmpeg
 source ~/.bashrc
