@@ -80,7 +80,7 @@ XTTS_CHECKPOINT = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(XTTS_CHECK
 
 # Training sentences generations
 SPEAKER_REFERENCE = [
-    "./tests/data/ljspeech/wavs/LJ001-0002.wav"  # speaker reference to be used in training test sentences
+    "/home/henryj/deepfake/training_data/AlexBoresVoice0.wav"  # speaker reference to be used in training test sentences
 ]
 LANGUAGE = config_dataset.language
 
@@ -140,15 +140,15 @@ def main():
         lr_scheduler_params={"milestones": [50000 * 18, 150000 * 18, 300000 * 18], "gamma": 0.5, "last_epoch": -1},
         test_sentences=[
             {
-                "text": "It took me quite a long time to develop a voice, and now that I have it I'm not going to be silent.",
+                "text": "I'm doing great. Thanks for having me and congratulations on the new position. I'm excited for a lot of the programming from New York law.",
                 "speaker_wav": SPEAKER_REFERENCE,
                 "language": LANGUAGE,
             },
-            {
-                "text": "This cake is great. It's so delicious and moist.",
-                "speaker_wav": SPEAKER_REFERENCE,
-                "language": LANGUAGE,
-            },
+            #{
+            #    "text": "This cake is great. It's so delicious and moist.",
+            #    "speaker_wav": SPEAKER_REFERENCE,
+            #    "language": LANGUAGE,
+            #},
         ],
     )
 
