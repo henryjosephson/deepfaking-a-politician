@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=transcribe_wavs_to_metadata
+#SBATCH --job-name=train_deepfake
 #SBATCH --output=./logs/%x/%x_%j.out
 #SBATCH --error=./logs/%x/%x_%j.err
 #SBATCH --account=pi-wltrimbl
