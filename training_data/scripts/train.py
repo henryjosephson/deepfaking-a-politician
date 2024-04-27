@@ -133,6 +133,7 @@ def main():
         eval_batch_size=BATCH_SIZE,
         num_loader_workers=8,
         eval_split_max_size=256,
+        eval_split_size=0.1,
         print_step=50,
         plot_step=100,
         log_model_step=1000,
@@ -173,7 +174,7 @@ def main():
         DATASETS_CONFIG_LIST,
         eval_split=True,
         eval_split_max_size=config.eval_split_max_size,
-        eval_split_size=config.eval_split_size,
+        eval_split_size=0.1,#config.eval_split_size,
     )
 
     # init the trainer and 🚀
