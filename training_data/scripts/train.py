@@ -5,13 +5,14 @@ from trainer import Trainer, TrainerArgs
 from TTS.config.shared_configs import BaseDatasetConfig
 from TTS.tts.datasets import load_tts_samples
 from TTS.tts.layers.xtts.trainer.gpt_trainer import GPTArgs, GPTTrainer, GPTTrainerConfig, XttsAudioConfig
-from TTS.utils.manage import ModelManager
 
 # Logging parameters
 RUN_NAME = "GPT_XTTS_v2.0_LJSpeech_FT"
 PROJECT_NAME = "XTTS_trainer"
 DASHBOARD_LOGGER = "tensorboard"
 LOGGER_URI = None
+
+print("step 1")
 
 # Set here the path that the checkpoints will be saved. Default: ./run/training/
 OUT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "run", "training")
@@ -23,6 +24,8 @@ BATCH_SIZE = 3  # set here the batch size
 GRAD_ACUMM_STEPS = 84  # set here the grad accumulation steps
 # Note: we recommend that BATCH_SIZE * GRAD_ACUMM_STEPS need to be at least 252 for more efficient training. You can increase/decrease BATCH_SIZE but then set GRAD_ACUMM_STEPS accordingly.
 
+print("step 2")
+
 # Define here the dataset that you want to use for the fine-tuning on.
 config_dataset = BaseDatasetConfig(
     formatter="ljspeech",
@@ -32,6 +35,8 @@ config_dataset = BaseDatasetConfig(
     language="en",
 )
 
+print("step 3")
+
 # Add here the configs of the datasets
 DATASETS_CONFIG_LIST = [config_dataset]
 
@@ -39,6 +44,7 @@ DATASETS_CONFIG_LIST = [config_dataset]
 CHECKPOINTS_OUT_PATH = os.path.join(OUT_PATH, "XTTS_v2.0_original_model_files/")
 os.makedirs(CHECKPOINTS_OUT_PATH, exist_ok=True)
 
+print("step 4")
 
 # DVAE files
 DVAE_CHECKPOINT_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/dvae.pth"
@@ -61,6 +67,7 @@ MEL_NORM_FILE = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(MEL_NORM_LIN
 #    print(" > Downloading DVAE files!")
 #    ModelManager._download_model_files([MEL_NORM_LINK, DVAE_CHECKPOINT_LINK], CHECKPOINTS_OUT_PATH, progress_bar=True)
 
+print("step 5")
 
 # Download XTTS v2.0 checkpoint if needed
 TOKENIZER_FILE_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/vocab.json"
@@ -77,6 +84,7 @@ XTTS_CHECKPOINT = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(XTTS_CHECK
 #        [TOKENIZER_FILE_LINK, XTTS_CHECKPOINT_LINK], CHECKPOINTS_OUT_PATH, progress_bar=True
 #    )
 
+print("step 6")
 
 # Training sentences generations
 SPEAKER_REFERENCE = [
@@ -87,6 +95,7 @@ LANGUAGE = config_dataset.language
 
 def main():
     # init args and config
+    print("starting step 7: get model args")
     model_args = GPTArgs(
         max_conditioning_length=132300,  # 6 secs
         min_conditioning_length=66150,  # 3 secs
@@ -103,9 +112,11 @@ def main():
         gpt_use_masking_gt_prompt_approach=True,
         gpt_use_perceiver_resampler=True,
     )
+    print("starting step 8: set audio_config")
     # define audio config
     audio_config = XttsAudioConfig(sample_rate=44100, dvae_sample_rate=22050, output_sample_rate=24000)
     # training parameters config
+    print("starting step 9: set training parameters")
     config = GPTTrainerConfig(
         output_path=OUT_PATH,
         model_args=model_args,
@@ -153,9 +164,11 @@ def main():
     )
 
     # init the model from config
+    print("starting step 10: init model")
     model = GPTTrainer.init_from_config(config)
 
     # load training samples
+    print("starting step 11: load training samples")
     train_samples, eval_samples = load_tts_samples(
         DATASETS_CONFIG_LIST,
         eval_split=True,
@@ -164,6 +177,7 @@ def main():
     )
 
     # init the trainer and 🚀
+    print("starting step 12: init trainer")
     trainer = Trainer(
         TrainerArgs(
             restore_path=None,  # xtts checkpoint is restored via xtts_checkpoint key so no need of restore it using Trainer restore_path parameter
@@ -177,6 +191,7 @@ def main():
         train_samples=train_samples,
         eval_samples=eval_samples,
     )
+    print("starting step 13: fit the trainer!")
     trainer.fit()
 
 
