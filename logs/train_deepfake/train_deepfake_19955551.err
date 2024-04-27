@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/henryj/deepfake/training_data/scripts/train.py", line 70, in <module>
+    TOKENIZER_FILE = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(TOKENIZER_FILE_LINK))  # vocab.json file
+NameError: name 'TOKENIZER_FILE_LINK' is not defined
