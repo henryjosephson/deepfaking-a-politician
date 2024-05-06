@@ -9,7 +9,8 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=henryj@uchicago.edu
 
-module load ffmpeg
+ml load cuda
+ml load ffmpeg
 source ~/.bashrc
 conda info --envs | head -5
 conda activate /home/henryj/deepfake/venv

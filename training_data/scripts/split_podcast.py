@@ -8,8 +8,7 @@
 from pydub import AudioSegment
 
 input_file = (
-    "Assemblymember Alex Bores on AI Opportunity, "
-    + "Court Reform, Housing Policy, & More.mp3"
+    "/home/henryj/deepfake/unprocessed/entire-podcast.mp3"
 )
 
 # convert take the mp3 from soundcloud...
@@ -78,7 +77,7 @@ for timeRange_ms in enumerate(
       ((20 * 60 + 47) * 1000, (20 * 60 + 58) * 1000), # 09 (original)
       ((20 * 60 + 58) * 1000, (21 * 60 + 11.2) * 1000), # 09 (original)
       ((21 * 60 + 11.2) * 1000, (21 * 60 + 23) * 1000), # 09 (original)
-      
+
       ((21 * 60 + 53) * 1000, (22 * 60 +  3) * 1000), # 10 (original)
       ((22 * 60 +  3) * 1000, (22 * 60 + 18) * 1000), # 10 (original)
       ((22 * 60 + 18) * 1000, (22 * 60 + 31) * 1000), # 10 (original)
@@ -104,7 +103,7 @@ for timeRange_ms in enumerate(
 
       ((27 * 60 + 13) * 1000, (27 * 60 + 21) * 1000), # 13 (original)
       ((27 * 60 + 21) * 1000, (27 * 60 + 25) * 1000), # 13 (original)
-      
+
       ((29 * 60 + 42) * 1000, (29 * 60 + 52) * 1000), # 14 (original)
       ((29 * 60 + 42) * 1000, (29 * 60 + 56.5) * 1000), # 14 (original)
       ((29 * 60 + 56.5) * 1000, (30 * 60 + 9.5) * 1000), # 14 (original)
