@@ -217,5 +217,5 @@ for timeRange_ms in enumerate(
       ]
     ):
     sound[timeRange_ms[1][0] : timeRange_ms[1][1]].export(
-        "AlexBoresVoice" + str(timeRange_ms[0]) + ".wav", format="wav"
+        "../MyTTSDataset/wavs/AlexBoresVoice" + str(timeRange_ms[0]) + ".wav", format="wav"
         )
