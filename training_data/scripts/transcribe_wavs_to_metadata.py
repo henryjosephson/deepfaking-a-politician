@@ -1,13 +1,18 @@
 #!/usr/local/bin/python3
 
+print("importing torch")
 import torch
 
+print("checking if cuda is available")
 if torch.cuda.is_available():
     device = torch.device("cuda")
 else:
     device = torch.device("cpu")
 
+print(device)
+
 import os
+print("importing whisper")
 import whisper
 
 print("loading model")
