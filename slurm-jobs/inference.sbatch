@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=train_deepfake
-#SBATCH --output=./logs/%x/%x_%j.out
-#SBATCH --error=./logs/%x/%x_%j.err
+#SBATCH --output=../logs/%x/%x_%j.out
+#SBATCH --error=../logs/%x/%x_%j.err
 #SBATCH --account=pi-wltrimbl
 #SBATCH --time=0-00:10:00
 #SBATCH --partition=gpu
