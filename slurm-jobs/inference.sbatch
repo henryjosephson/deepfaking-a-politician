@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=train_deepfake
+#SBATCH --job-name=inference
 #SBATCH --output=/home/henryj/deepfake/logs/%x/%x_%j.out
 #SBATCH --error=/home/henryj/deepfake/logs/%x/%x_%j.err
 #SBATCH --account=pi-wltrimbl
