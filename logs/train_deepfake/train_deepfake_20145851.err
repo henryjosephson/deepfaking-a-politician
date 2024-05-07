@@ -1,0 +1,94 @@
+ > Training Environment:
+ | > Backend: Torch
+ | > Mixed precision: False
+ | > Precision: float32
+ | > Current device: 0
+ | > Num. of GPUs: 1
+ | > Num. of CPUs: 48
+ | > Num. of Torch Threads: 1
+ | > Torch seed: 1
+ | > Torch CUDNN: True
+ | > Torch CUDNN deterministic: False
+ | > Torch CUDNN benchmark: False
+ | > Torch TF32 MatMul: False
+ > Start Tensorboard: tensorboard --logdir=/home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-06-2024_03+27PM-6c5de6b
+
+ > Model has 518442047 parameters
+
+[4m[1m > EPOCH: 0/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-06-2024_03+27PM-6c5de6b
+
+[1m > EVALUATION [0m
+
+/home/henryj/deepfake/venv/lib/python3.10/site-packages/TTS/tts/layers/xtts/trainer/gpt_trainer.py:277: UserWarning: "kaiser_window" resampling method name is being deprecated and replaced by "sinc_interp_kaiser" in the next release. The default behavior remains unchanged.
+  dvae_wav = torchaudio.functional.resample(
+/home/henryj/deepfake/venv/lib/python3.10/site-packages/torchaudio/functional/functional.py:1466: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  resampled = torch.nn.functional.conv1d(waveform[:, None], kernel, stride=orig_freq)
+/home/henryj/deepfake/venv/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time: 4.517364263534546 [0m(+0)
+     | > avg_loss_text_ce: 0.023295694962143898 [0m(+0)
+     | > avg_loss_mel_ce: 2.736807346343994 [0m(+0)
+     | > avg_loss: 2.7601029872894287 [0m(+0)
+
+
+[4m[1m > EPOCH: 1/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-06-2024_03+27PM-6c5de6b
+/home/henryj/deepfake/venv/lib/python3.10/site-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+
+[1m > TRAINING (2024-05-06 15:27:31) [0m
+
+[1m   --> TIME: 2024-05-06 15:27:39 -- STEP: 0/52 -- GLOBAL_STEP: 0[0m
+     | > loss_text_ce: 0.020019028335809708  (0.020019028335809708)
+     | > loss_mel_ce: 2.5822501182556152  (2.5822501182556152)
+     | > loss: 0.030979394912719727  (0.030979394912719727)
+     | > current_lr: 5e-06 
+     | > step_time: 2.0379  (2.0378503799438477)
+     | > loader_time: 6.5488  (6.548773288726807)
+
+
+[1m   --> TIME: 2024-05-06 15:27:55 -- STEP: 50/52 -- GLOBAL_STEP: 50[0m
+     | > loss_text_ce: 0.022704100236296654  (0.021845234371721745)
+     | > loss_mel_ce: 2.7576794624328613  (2.8185566568374636)
+     | > loss: 0.03309980407357216  (0.033814309015870105)
+     | > current_lr: 5e-06 
+     | > step_time: 0.19  (0.23337123870849616)
+     | > loader_time: 0.0052  (0.018191094398498534)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.02843642234802246 [0m(-4.488927841186523)
+     | > avg_loss_text_ce:[92m 0.023195242509245872 [0m(-0.00010045245289802551)
+     | > avg_loss_mel_ce:[92m 2.6370084285736084 [0m(-0.09979891777038574)
+     | > avg_loss:[92m 2.660203695297241 [0m(-0.0998992919921875)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-06-2024_03+27PM-6c5de6b/best_model_52.pth
+ ! Run is kept in /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-06-2024_03+27PM-6c5de6b
+Traceback (most recent call last):
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/trainer/trainer.py", line 1833, in fit
+    self._fit()
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/trainer/trainer.py", line 1796, in _fit
+    self.save_best_model()
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/trainer/utils/distributed.py", line 35, in wrapped_fn
+    return fn(*args, **kwargs)
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/trainer/trainer.py", line 1916, in save_best_model
+    self.best_loss = save_best_model(
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/trainer/io.py", line 221, in save_best_model
+    fs.copy(checkpoint_path, shortcut_path)
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/fsspec/spec.py", line 1120, in copy
+    self.cp_file(p1, p2, **kwargs)
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/fsspec/implementations/local.py", line 129, in cp_file
+    shutil.copyfile(path1, path2)
+  File "/home/henryj/deepfake/venv/lib/python3.10/shutil.py", line 267, in copyfile
+    _fastcopy_sendfile(fsrc, fdst)
+  File "/home/henryj/deepfake/venv/lib/python3.10/shutil.py", line 162, in _fastcopy_sendfile
+    raise err
+  File "/home/henryj/deepfake/venv/lib/python3.10/shutil.py", line 142, in _fastcopy_sendfile
+    sent = os.sendfile(outfd, infd, offset, blocksize)
+OSError: [Errno 122] Disk quota exceeded: '/home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-06-2024_03+27PM-6c5de6b/best_model_52.pth' -> '/home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-06-2024_03+27PM-6c5de6b/best_model.pth'
