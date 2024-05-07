@@ -39,7 +39,7 @@ gpt_cond_latent, speaker_embedding = model.get_conditioning_latents(audio_path=[
 
 print("Inference...")
 out = model.inference(
-    "It took me quite a long time to develop a voice and now that I have it I am not going to be silent.",
+    "as just one example, Nvidia, the maker of the chips that are used to actually power AI research, recently took all of their corporate knowledge, all of the bug reports, all of their schematics for chips, and put that into an AI system to help develop new chips.",
     "en",
     gpt_cond_latent,
     speaker_embedding,
