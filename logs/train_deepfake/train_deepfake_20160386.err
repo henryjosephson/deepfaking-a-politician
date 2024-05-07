@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/henryj/deepfake/training_data/scripts/inference.py", line 34, in <module>
+    model.load_checkpoint(config, checkpoint_path=XTTS_CHECKPOINT, vocab_path=TOKENIZER_PATH, use_deepspeed=False)
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/TTS/tts/models/xtts.py", line 759, in load_checkpoint
+    speaker_file_path = speaker_file_path or os.path.join(checkpoint_dir, "speakers_xtts.pth")
+  File "/home/henryj/deepfake/venv/lib/python3.10/posixpath.py", line 76, in join
+    a = os.fspath(a)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
