@@ -17,7 +17,7 @@ TOKENIZER_PATH = (
 # Add here the checkpoint that you want to do inference with
 XTTS_CHECKPOINT = (
     "/home/henryj/deepfake/training_data/scripts/run/training/"
-    + "GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model.pth"
+    + "GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/"#best_model.pth"
 )
 # Add here the speaker reference
 SPEAKER_REFERENCE = (
@@ -31,7 +31,7 @@ print("Loading model...")
 config = XttsConfig()
 config.load_json(CONFIG_PATH)
 model = Xtts.init_from_config(config)
-model.load_checkpoint(config, checkpoint_path=XTTS_CHECKPOINT, vocab_path=TOKENIZER_PATH, use_deepspeed=False)
+model.load_checkpoint(config, checkpoint_dir=XTTS_CHECKPOINT, vocab_path=TOKENIZER_PATH, use_deepspeed=False)
 model.cuda()
 
 print("Computing speaker latents...")
