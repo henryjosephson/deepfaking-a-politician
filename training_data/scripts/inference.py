@@ -39,7 +39,9 @@ gpt_cond_latent, speaker_embedding = model.get_conditioning_latents(audio_path=[
 
 print("Inference...")
 out = model.inference(
+
     "So we'll learn over time as that develops, but certainly it shouldn't be a ban all of AI use in government, nor should it be a anything that's faster is good, right?",
+
     "en",
     gpt_cond_latent,
     speaker_embedding,
