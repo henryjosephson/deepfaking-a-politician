@@ -1,0 +1,14 @@
+# conda environments:
+#
+                         /home/henryj/deepfake/venv
+base                  *  /software/python-anaconda-2022.05-el8-x86_64
+R                        /software/python-anaconda-2022.05-el8-x86_64/envs/R
+# conda environments:
+#
+                      *  /home/henryj/deepfake/venv
+base                     /software/python-anaconda-2022.05-el8-x86_64
+R                        /software/python-anaconda-2022.05-el8-x86_64/envs/R
+Loading model...
+Computing speaker latents...
+Inference...
+[!] Warning: The text length exceeds the character limit of 250 for language 'en', this might cause truncated audio.
