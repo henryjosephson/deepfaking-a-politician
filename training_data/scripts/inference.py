@@ -25,7 +25,7 @@ SPEAKER_REFERENCE = (
 )
 
 # output wav path
-OUTPUT_WAV_PATH = "/home/henryj/deepfake/outputs/xtts-ft.wav"
+OUTPUT_WAV_PATH = "/home/henryj/deepfake/outputs/xtts-ft"
 
 print("Loading model...")
 config = XttsConfig()
@@ -39,10 +39,21 @@ gpt_cond_latent, speaker_embedding = model.get_conditioning_latents(audio_path=[
 
 print("Inference...")
 out = model.inference(
-    "as just one example, Nvidia, the maker of the chips that are used to actually power AI research, recently took all of their corporate knowledge, all of the bug reports, all of their schematics for chips, and put that into an AI system to help develop new chips.",
+
+    "So we'll learn over time as that develops, but certainly it shouldn't be a ban all of AI use in government, nor should it be a anything that's faster is good, right?",
+
     "en",
     gpt_cond_latent,
     speaker_embedding,
     temperature=0.7, # Add custom parameters here
 )
-torchaudio.save(OUTPUT_WAV_PATH, torch.tensor(out["wav"]).unsqueeze(0), 24000)
+torchaudio.save(OUTPUT_WAV_PATH + '101.wav', torch.tensor(out["wav"]).unsqueeze(0), 24000)
+
+out = model.inference(
+    "Government deals with really serious issues, and when we're having that, we need to have a higher scale of audit on these systems.",
+    "en",
+    gpt_cond_latent,
+    speaker_embedding,
+    temperature=0.7, # Add custom parameters here
+)
+torchaudio.save(OUTPUT_WAV_PATH + '102.wav', torch.tensor(out["wav"]).unsqueeze(0), 24000)
