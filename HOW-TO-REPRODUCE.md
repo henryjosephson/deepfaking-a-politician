@@ -51,10 +51,10 @@ We saved the outputted audios to the `outputs` directory, and all of the vocoder
 ## 4. Train leading proprietary deepfake
 We also looked into businesses that sell voice cloning software, on the assumption that they'd perform better than the free versions. (This assumption was later validated, see [below](#6-evaluate-the-three-deepfakes).) Our search led us to [ElevenLabs](https://elevenlabs.io), a company which, for just $11/month, let us generate several hundred thousand tokens worth of audio. (We never did come close to the limit).
 
-They also offered a 'Professional voice cloning' option, which requires that you verify that the voice is yours — before they let you create a 'professional voice clone,' they'll put a sentence up on the screen, and you need to read it into the microphone within fifteen seconds. If the voice reading the sentence doesn't match the voice reading the 
+They also offered a 'Professional voice cloning' option, which requires that you verify that the voice is yours — before they let you create a 'professional voice clone,' they'll put a sentence up on the screen, and you need to read it into the microphone within fifteen seconds. If the voice reading the sentence doesn't match the training data, then you get locked out. As I'll describe in section 5c, <!--link --> we tried to bypass this, both with our own fine-tuned model and with the base ElevenLabs voice. Alas, neither attempt was successful.
 
 ## 5. Fine-tune state-of-the-art text-to-speech model
-
+This is the most involved and most time-consuming part of the project. First, some compute notes — Professor Trimble was kind enough to allow us access to his PI allocation on UChicago's midway compute cluster. We're incredibly grateful for this, because 
 
 ## 6. Evaluate the three deepfakes
 
