@@ -31,7 +31,7 @@ Okay, this one is hopefully straightforward — this started as a personal curi
 It's very convenient, then, that I spent the summer of 2023 as a legislative aide for New York State Assemblymember Alex Bores. AM Bores doesn't just have a master's in machine learning from Georgia Tech — he's particularly worried about the sudden 
 
 So I asked him — do you mind if I deepfake you?
-\![](assets/IMG_8972.PNG)
+![](assets/IMG_8972.PNG)
 
 Fortunately, he said yes.
 
