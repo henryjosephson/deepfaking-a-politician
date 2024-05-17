@@ -51,7 +51,7 @@ We saved the outputted audios to the `outputs` directory, and all of the vocoder
 ## 4. Train leading proprietary deepfake
 We also looked into businesses that sell voice cloning software, on the assumption that they'd perform better than the free versions. (This assumption was later validated, see [below](#6-evaluate-the-three-deepfakes).) Our search led us to [ElevenLabs](https://elevenlabs.io), a company which, for just $11/month, let us generate several hundred thousand tokens worth of audio. (We never did come close to the limit).
 
-They also offered a 'Professional voice cloning' option, which requires that you verify that the voice is yours — before they let you create a 'professional voice clone,' they'll put a sentence up on the screen, and you need to read it into the microphone within fifteen seconds. If the voice reading the sentence doesn't match the training data, then you get locked out. As I'll describe in section 5c, <!--link --> we tried to bypass this, both with our own fine-tuned model and with the base ElevenLabs voice. Alas, neither attempt was successful.
+They also offered a 'Professional voice cloning' option, which requires that you verify that the voice is yours — before they let you create a 'professional voice clone,' they'll put a sentence up on the screen, and you need to read it into the microphone within fifteen seconds. If the voice reading the sentence doesn't match the training data, then you get locked out. As I'll describe in section [5d](#5d-not-good-enough-to-fool-elevenlabs), we tried to bypass this, both with our own fine-tuned model and with the base ElevenLabs voice. Alas, neither attempt was successful.
 
 ## 5. Fine-tune state-of-the-art text-to-speech model
 ### 5a. Setup
@@ -75,8 +75,59 @@ I'll spare you a bug-by-bug recount, but one illustrative example is that, appar
 Once all the bugs were quashed, though, I hit submit on the slurm job and watched it run. One potential caveat is that we only ran training once, and only for ~42 epochs — if I could go back and do the project again, I'd do many more smaller training runs to try to better tune hyperparameters, then try to do a larger training run on 50+ epochs. That said, it clearly output a serviceable text-to-speech model that approximated Alex's voice.
 
 ### 5c. Infer
-To produce inference, add all the sentences that you want the model to output to the 
+To produce inference, add all the sentences that you want the model to say as strings to the `stuff_to_say` list in inference.py. You can then either run the inference slurm job by running
+
+```
+sbatch slurm/jobs/inference.sbatch
+```
+on a slurm cluster, or by running the `inference.py` script directly on your GPU machine. Once the script runs, you should have `.wav` files of the model in the outputs directory.
+
+### 5d. Not good enough to fool ElevenLabs
+Now, like I mentioned [above](#4-train-leading-proprietary-deepfake), we briefly considered using this custom model to get around the voice verification that ElevenLabs uses to gatekeep their highest-quality cloner. This was a fun challenge, especially because the verification has a 15-second time limit. After piping together a [screenshot-to-text tool](https://github.com/ianzhao05/textshot) and our text-to-speech tool, we eventually found out that ElevenLabs just wasn't convinced that the speaker in the uploaded training files was the same as the voice we were generating to try to fool them (and they were right).
 
 ## 6. Evaluate the three deepfakes
+Okay, now that we have three ways to generate deepfakes, we need to evaluate them. We did this in two ways: first, by creating a Google form and sharing it with people who have previously worked with Alex, and second by uploading clips to various internet deepfake detectors.
 
-https://docs.google.com/forms/d/1312gvJJk07z9-HxMLPH62jy3LPdWXILc5RitBq8cui8/edit
+### 6a. Survey
+I'm in a group chat with everyone who's worked for Alex Bores before, and I shared a survey with 12 audio recordings — 7 fake, 5 real. You can see the live survey [here](https://docs.google.com/forms/d/1312gvJJk07z9-HxMLPH62jy3LPdWXILc5RitBq8cui8/edit), and a pdf version is included 
+
+
+Navigate to the Vocloner and ElevenLabs TTS generation webpages (https://vocloner.com/ and https://elevenlabs.io/app/speech-synthesis) . 
+For Vocloner, select Version 2 (labeled Vers.2)
+ElevenLabs will require you to be a paying subscriber to use the base model TTS generation. 
+Upload training audio. For ElevenLabs, we uploaded a full set of 23.wav files containing audio clips of whenever Bores spoke without interruption in his Max Politics podcast episode. These can be found in Henry Josephson’s Github history. For Vocloner, which limits the quantity of training data you can upload, we used the file AlexBoresVoice85.wav. The sentence reads: 
+
+As just one example, Nvidia, the maker of the chips that are used to actually power AI research, recently took all of their corporate knowledge, all of the bug reports, all of their schematics for chips, and put that into an AI system to help develop new chips. 
+
+Output audio for select sentences. We used the following five short sentences, intended to cover a moderately wide range of language formality and disciplines:
+
+Failure doesn’t mean you are a failure, it just means you haven’t succeeded yet. 
+
+We will compare this recording against the audio you uploaded in the previous step to verify it’s your voice.
+
+A liquidity trap is caused when people hold cash because they expect an adverse event such as deflation, insufficient aggregate demand, or war.
+
+Stirner suggested that communism was tainted with the same idealism as Christianity and infused with superstitious ideas like morality and justice.
+
+Malicious users could download deepfake software on their personal computers and avoid any degree of oversight. 
+	
+We then outputted 5 additional sentences (referenced across from several sources, such as Clagnut (https://clagnut.com/blog/2380/#English_phonetic_pangrams)) meant to approximately cover the full range of possible English phonemes: 
+
+With tenure, Suzie would have all the more leisure for yachting, but her publications are no good
+
+Are those shy Eurasian footwear, cowboy chaps, or jolly earthmoving headgear?
+
+The beige hue on the waters of the loch impressed all, including the French queen, before she heard that symphony again, just as young Arthur wanted.
+
+Shaw, those twelve beige hooks are joined if I patch a young, gooey mouth. 
+
+Six spoons of fresh snow peas, five thick slabs of blue cheese, and maybe a snack for her brother Bob. 
+
+Output this same set of sentences from our own TTS model. [OTHER INSTRUCTIONS] file outlines this process in much greater detail. 
+Navigate to the University of Buffalo’s Deepfake-O-Meter website (https://zinc.cse.buffalo.edu/ubmdfl/deep-o-meter/landing_page), and create a free account with them. 
+Upload a given audio clip and select the Wroclaw University of Science and Technology's 2023 audio detector option. Select ‘I don’t know’ for whether or not you think a given clip is real or fake from the right-side menu. 
+Repeat this process for each sentence created by the three TTS methods. Note that all columns in our results .csv (except for ‘Real Audio’) segment our results by whether or not they belong to the ‘short sentences’ group or ‘phoneme-robust sentences’ group, as denoted by column ‘Clip Type’. 
+Take the mean of results according to their grouping (Wroclaw detector, TTS method, and audio clip type). 
+Take a sample of 10 out of the 167 podcast audio clips available in Henry Josephson’s Github under training_data/MyTTSDataset/wavs. We utilized clips AlexBoresVoice1.wav, AlexBoresVoice10.wav, AlexBoresVoice100.wav, AlexBoresVoice101.wav, AlexBoresVoice102.wav, AlexBoresVoice40.wav, AlexBoresVoice50.wav, AlexBoresVoice60.wav, AlexBoresVoice80.wav, and AlexBoresVoice90.wav. 
+Run each of these clips through the Deepfake-O-Meter platform and settings described in Step 6. Note the results recorded in the csv (right-most column) are NOT segmented by short and phoneme clips, as we don’t have any specifically phoneme-robust clips from Bores.  
+Take the mean of the Wroclaw detector ‘Real Audio’ results. 
