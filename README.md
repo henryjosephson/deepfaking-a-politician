@@ -8,6 +8,7 @@ Here's a quick roadmap of what sort of material is in each directory:
 ```
 .                      # basics (README, reproduction instructions, video, etc)
 ├── assets             # images that're in the readme
+├── evals              # results from deepfake detectors & people who know alex
 ├── outputs            # all deepfaked audio we've created
 │   └── for-survey     # deepfaked audio we used in a survey
 │       ├── mp4s       # mp4 versions of the audios
