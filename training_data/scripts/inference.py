@@ -44,11 +44,10 @@ stuff_to_say = [
 #    "Stirner suggested that communism was tainted with the same idealism as Christianity and infused with superstitious ideas like morality and justice.",
 #    "Malicious users could download deepfake software on their personal computers and avoid any degree of oversight.",
 #    "With tenure, Suzie would have all the more leisure for yachting, but her publications are no good."
-#    "Are those shy Eurasian footwear, cowboy chaps, or jolly earthmoving headgear?",
+    "Are those shy Eurasian footwear, cowboy chaps, or jolly earthmoving headgear?",
 #    "The beige hue on the waters of the loch impressed all, including the French queen, before she heard that symphony again, just as young Arthur wanted.",
 #    "Shaw, those twelve beige hooks are joined if I patch a young, gooey mouth.",
 #    "Six spoons of fresh snow peas, five thick slabs of blue cheese, and maybe a snack for her brother Bob.",
-    "Are those shy Eurasian footwear, cowboy chaps, or jolly earthmoving headgear?"
 ]
 
 print("Inference...")
