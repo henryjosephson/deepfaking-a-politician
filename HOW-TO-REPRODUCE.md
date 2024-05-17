@@ -13,7 +13,7 @@ You can break down our work into seven broad steps:
 Let's go through these one-by-one.
 
 ## 0. Get permission from the person you're deepfaking
-Okay, this one is hopefully straightforward — this started as a personal curiosity that I adapted into a school project — neither Otto nor I are trying to create political propaganda, and we're definitely not trying to run afoul of the law.
+Okay, this one is hopefully straightforward. This started as a personal curiosity that I adapted into a school project — neither Otto nor I are trying to create political propaganda, and we're definitely not trying to run afoul of the law.
 
 It's very convenient, then, that I spent the summer of 2023 as a legislative aide for New York State Assemblymember Alex Bores. AM Bores doesn't just have a master's in machine learning from Georgia Tech — he's particularly worried about the sudden 
 
