@@ -89,45 +89,55 @@ Now, like I mentioned [above](#4-train-leading-proprietary-deepfake), we briefly
 Okay, now that we have three ways to generate deepfakes, we need to evaluate them. We did this in two ways: first, by creating a Google form and sharing it with people who have previously worked with Alex, and second by uploading clips to various internet deepfake detectors.
 
 ### 6a. Survey
-I'm in a group chat with everyone who's worked for Alex Bores before, and I shared a survey with 12 audio recordings — 7 fake, 5 real. You can see the live survey [here](https://docs.google.com/forms/d/1312gvJJk07z9-HxMLPH62jy3LPdWXILc5RitBq8cui8/edit), and a pdf version is included 
+I'm in a group chat with everyone who's worked for Alex Bores before, and I shared a survey with 12 audio recordings — 7 fake, 5 real. You can listen to all of the recordings under `outputs/for-survey`. The same recordings are included as both `wav`s and `mp4`s so that I could upload them to YouTube (as unlisted videos) and thereby embed them in the form.
 
+You can see the live form [here](https://docs.google.com/forms/d/1312gvJJk07z9-HxMLPH62jy3LPdWXILc5RitBq8cui8/edit), and a pdf version is included at `evals/survey/Alex Bores Deepfake Detection (Survey).pdf`. Unfortunately, only four people responded to the survey, so we can't really use it for anything more than superficial vibes. That said, the ElevenLabs recordings were clearly the most convincing fakes — feel free to review the anonymized responses at `evals/survey/Alex Bores Deepfake Detection (Responses) - anonymized.csv` -- people who know the man said pretty consistently that the ElevenLabs recordings were real!
 
-Navigate to the Vocloner and ElevenLabs TTS generation webpages (https://vocloner.com/ and https://elevenlabs.io/app/speech-synthesis) . 
-For Vocloner, select Version 2 (labeled Vers.2)
-ElevenLabs will require you to be a paying subscriber to use the base model TTS generation. 
-Upload training audio. For ElevenLabs, we uploaded a full set of 23.wav files containing audio clips of whenever Bores spoke without interruption in his Max Politics podcast episode. These can be found in Henry Josephson’s Github history. For Vocloner, which limits the quantity of training data you can upload, we used the file AlexBoresVoice85.wav. The sentence reads: 
+### 6b. Deepfake Detectors
 
-As just one example, Nvidia, the maker of the chips that are used to actually power AI research, recently took all of their corporate knowledge, all of the bug reports, all of their schematics for chips, and put that into an AI system to help develop new chips. 
+To recreate our deepfake detector tests, as displayed in the writeup:
 
-Output audio for select sentences. We used the following five short sentences, intended to cover a moderately wide range of language formality and disciplines:
+1. Navigate to the Vocloner and ElevenLabs TTS generation webpages (https://vocloner.com/ and https://elevenlabs.io/app/speech-synthesis). 
+    a. For Vocloner, select Version 2.
+    b. ElevenLabs will require you to be a paying subscriber to use the base model TTS generation. 
 
-Failure doesn’t mean you are a failure, it just means you haven’t succeeded yet. 
+2. Upload training audio. For ElevenLabs, we uploaded all of our training data. For Vocloner, which limits the quantity of training data you can upload, we used the file AlexBoresVoice85.wav. The sentence reads: 
 
-We will compare this recording against the audio you uploaded in the previous step to verify it’s your voice.
+> As just one example, Nvidia, the maker of the chips that are used to actually power AI research, recently took all of their corporate knowledge, all of the bug reports, all of their schematics for chips, and put that into an AI system to help develop new chips. 
 
-A liquidity trap is caused when people hold cash because they expect an adverse event such as deflation, insufficient aggregate demand, or war.
+3. Output audio for select sentences. We used the following five short sentences, intended to cover a moderately wide range of language formality and disciplines:
 
-Stirner suggested that communism was tainted with the same idealism as Christianity and infused with superstitious ideas like morality and justice.
+> Failure doesn’t mean you are a failure, it just means you haven’t succeeded yet. 
 
-Malicious users could download deepfake software on their personal computers and avoid any degree of oversight. 
+> We will compare this recording against the audio you uploaded in the previous step to verify it’s your voice.
+
+> A liquidity trap is caused when people hold cash because they expect an adverse event such as deflation, insufficient aggregate demand, or war.
+
+> Stirner suggested that communism was tainted with the same idealism as Christianity and infused with superstitious ideas like morality and justice.
+
+> Malicious users could download deepfake software on their personal computers and avoid any degree of oversight. 
 	
-We then outputted 5 additional sentences (referenced across from several sources, such as Clagnut (https://clagnut.com/blog/2380/#English_phonetic_pangrams)) meant to approximately cover the full range of possible English phonemes: 
+ We then outputted 5 additional sentences (referenced across from several sources, such as [Clagnut](https://clagnut.com/blog/2380/#English_phonetic_pangrams)) meant to approximately cover the full range of possible English phonemes: 
 
-With tenure, Suzie would have all the more leisure for yachting, but her publications are no good
+> With tenure, Suzie would have all the more leisure for yachting, but her publications are no good.
 
-Are those shy Eurasian footwear, cowboy chaps, or jolly earthmoving headgear?
+> Are those shy Eurasian footwear, cowboy chaps, or jolly earthmoving headgear?
 
-The beige hue on the waters of the loch impressed all, including the French queen, before she heard that symphony again, just as young Arthur wanted.
+> The beige hue on the waters of the loch impressed all, including the French queen, before she heard that symphony again, just as young Arthur wanted.
 
-Shaw, those twelve beige hooks are joined if I patch a young, gooey mouth. 
+> Shaw, those twelve beige hooks are joined if I patch a young, gooey mouth. 
 
-Six spoons of fresh snow peas, five thick slabs of blue cheese, and maybe a snack for her brother Bob. 
+> Six spoons of fresh snow peas, five thick slabs of blue cheese, and maybe a snack for her brother Bob. 
 
-Output this same set of sentences from our own TTS model. [OTHER INSTRUCTIONS] file outlines this process in much greater detail. 
-Navigate to the University of Buffalo’s Deepfake-O-Meter website (https://zinc.cse.buffalo.edu/ubmdfl/deep-o-meter/landing_page), and create a free account with them. 
-Upload a given audio clip and select the Wroclaw University of Science and Technology's 2023 audio detector option. Select ‘I don’t know’ for whether or not you think a given clip is real or fake from the right-side menu. 
-Repeat this process for each sentence created by the three TTS methods. Note that all columns in our results .csv (except for ‘Real Audio’) segment our results by whether or not they belong to the ‘short sentences’ group or ‘phoneme-robust sentences’ group, as denoted by column ‘Clip Type’. 
-Take the mean of results according to their grouping (Wroclaw detector, TTS method, and audio clip type). 
-Take a sample of 10 out of the 167 podcast audio clips available in Henry Josephson’s Github under training_data/MyTTSDataset/wavs. We utilized clips AlexBoresVoice1.wav, AlexBoresVoice10.wav, AlexBoresVoice100.wav, AlexBoresVoice101.wav, AlexBoresVoice102.wav, AlexBoresVoice40.wav, AlexBoresVoice50.wav, AlexBoresVoice60.wav, AlexBoresVoice80.wav, and AlexBoresVoice90.wav. 
-Run each of these clips through the Deepfake-O-Meter platform and settings described in Step 6. Note the results recorded in the csv (right-most column) are NOT segmented by short and phoneme clips, as we don’t have any specifically phoneme-robust clips from Bores.  
-Take the mean of the Wroclaw detector ‘Real Audio’ results. 
+4. Output this same set of sentences from our own TTS model. (see [5c. Infer](#5c-infer) for instructions)
+
+5. Navigate to the University of Buffalo’s [Deepfake-O-Meter website](https://zinc.cse.buffalo.edu/ubmdfl/deep-o-meter/landing_page), and create a free account.
+
+6. Upload a given audio clip and select the Wroclaw University of Science and Technology's 2023 audio detector option. Select ‘I don’t know’ for whether or not you think a given clip is real or fake from the right-side menu. 
+    a. Note that, while we tested other detectors (see `evals/deepfake-detector/Automated Deepfake Detector Results.csv`), we decided to utilize only those results from the Wroclaw detector given their relative accuracy in deducing TTS and real audio. 
+
+7. Repeat this process for each sentence created by the three TTS methods. Note that all columns in `evals/deepfake-detector/Automated Deepfake Detector Results.csv` (except for ‘Real Audio’) segment our results by whether or not they belong to the ‘short sentences’ group or ‘phoneme-robust sentences’ group, as denoted by column ‘Clip Type’. 
+8. Take the mean of results according to their grouping (Wroclaw detector, TTS method, and audio clip type). 
+9. Take a sample of 10 out of the 167 podcast audio clips available in Henry Josephson’s Github under training_data/MyTTSDataset/wavs. We utilized clips AlexBoresVoice1.wav, AlexBoresVoice10.wav, AlexBoresVoice100.wav, AlexBoresVoice101.wav, AlexBoresVoice102.wav, AlexBoresVoice40.wav, AlexBoresVoice50.wav, AlexBoresVoice60.wav, AlexBoresVoice80.wav, and AlexBoresVoice90.wav. 
+10. Run each of these clips through the Deepfake-O-Meter platform and settings described in Step 6. Note the results recorded in the csv (right-most column) are NOT segmented by short and phoneme clips, as we don’t have any specifically phoneme-robust clips from Bores. 
+11. Take the mean of the Wroclaw detector ‘Real Audio’ results. 
