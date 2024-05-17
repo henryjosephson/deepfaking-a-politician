@@ -1,0 +1,5 @@
+ERROR: Unable to locate a modulefile for 'anaconda'
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7fc8bf6c35d0>: Failed to establish a new connection: [Errno 101] Network is unreachable')': /simple/openai-whisper/
+WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7fc8bf6cc110>: Failed to establish a new connection: [Errno 101] Network is unreachable')': /simple/openai-whisper/
+WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7fc8bf6ccb50>: Failed to establish a new connection: [Errno 101] Network is unreachable')': /simple/openai-whisper/
+slurmstepd: error: *** JOB 19821231 ON midway3-0285 CANCELLED AT 2024-04-23T11:53:52 ***

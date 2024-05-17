@@ -1,0 +1,2 @@
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pip in /software/python-anaconda-2020.11-el8-x86_64/envs/pytorch-1.10-cuda-10.2/lib/python3.11/site-packages (23.1.2)

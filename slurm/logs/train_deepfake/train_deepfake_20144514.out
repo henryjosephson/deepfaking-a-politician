@@ -1,0 +1,22 @@
+# conda environments:
+#
+                         /home/henryj/deepfake/alltalk_tts/alltalk_environment/conda
+                         /home/henryj/deepfake/alltalk_tts/alltalk_environment/env
+                         /home/henryj/deepfake/venv
+# conda environments:
+#
+                         /home/henryj/deepfake/alltalk_tts/alltalk_environment/conda
+                         /home/henryj/deepfake/alltalk_tts/alltalk_environment/env
+                      *  /home/henryj/deepfake/venv
+step 1
+step 2
+step 3
+step 4
+step 5
+step 6
+starting step 7: get model args
+starting step 8: set audio_config
+starting step 9: set training parameters
+starting step 10: init model
+>> DVAE weights restored from: /home/henryj/deepfake/training_data/scripts/run/training/XTTS_v2.0_original_model_files/dvae.pth
+starting step 11: load training samples
