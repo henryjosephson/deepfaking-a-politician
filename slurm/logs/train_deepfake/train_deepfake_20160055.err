@@ -1,0 +1,1720 @@
+ > Training Environment:
+ | > Backend: Torch
+ | > Mixed precision: False
+ | > Precision: float32
+ | > Current device: 0
+ | > Num. of GPUs: 1
+ | > Num. of CPUs: 48
+ | > Num. of Torch Threads: 1
+ | > Torch seed: 1
+ | > Torch CUDNN: True
+ | > Torch CUDNN deterministic: False
+ | > Torch CUDNN benchmark: False
+ | > Torch TF32 MatMul: False
+ > Start Tensorboard: tensorboard --logdir=/home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+ > Model has 518442047 parameters
+
+[4m[1m > EPOCH: 0/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > EVALUATION [0m
+
+/home/henryj/deepfake/venv/lib/python3.10/site-packages/TTS/tts/layers/xtts/trainer/gpt_trainer.py:277: UserWarning: "kaiser_window" resampling method name is being deprecated and replaced by "sinc_interp_kaiser" in the next release. The default behavior remains unchanged.
+  dvae_wav = torchaudio.functional.resample(
+/home/henryj/deepfake/venv/lib/python3.10/site-packages/torch/nn/modules/conv.py:306: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv1d(input, weight, bias, self.stride,
+/home/henryj/deepfake/venv/lib/python3.10/site-packages/torchaudio/functional/functional.py:1466: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  resampled = torch.nn.functional.conv1d(waveform[:, None], kernel, stride=orig_freq)
+/home/henryj/deepfake/venv/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time: 0.7801389694213867 [0m(+0)
+     | > avg_loss_text_ce: 0.023295346647500992 [0m(+0)
+     | > avg_loss_mel_ce: 2.736766815185547 [0m(+0)
+     | > avg_loss: 2.7600622177124023 [0m(+0)
+
+
+[4m[1m > EPOCH: 1/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+/home/henryj/deepfake/venv/lib/python3.10/site-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+
+[1m > TRAINING (2024-05-07 10:34:59) [0m
+
+[1m   --> TIME: 2024-05-07 10:35:07 -- STEP: 0/52 -- GLOBAL_STEP: 0[0m
+     | > loss_text_ce: 0.020248323678970337  (0.020248323678970337)
+     | > loss_mel_ce: 2.5599613189697266  (2.5599613189697266)
+     | > loss: 0.030716782435774803  (0.030716782435774803)
+     | > current_lr: 5e-06 
+     | > step_time: 1.3987  (1.3987171649932861)
+     | > loader_time: 5.878  (5.87803316116333)
+
+
+[1m   --> TIME: 2024-05-07 10:35:26 -- STEP: 50/52 -- GLOBAL_STEP: 50[0m
+     | > loss_text_ce: 0.02267536334693432  (0.021856528148055075)
+     | > loss_mel_ce: 2.766902208328247  (2.819282112121582)
+     | > loss: 0.03320925682783127  (0.03382307987660171)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2528  (0.2573129081726075)
+     | > loader_time: 0.0053  (0.03960782051086425)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.02800726890563965 [0m(-0.7521317005157471)
+     | > avg_loss_text_ce:[92m 0.02319764532148838 [0m(-9.770132601261139e-05)
+     | > avg_loss_mel_ce:[92m 2.6377623081207275 [0m(-0.09900450706481934)
+     | > avg_loss:[92m 2.6609599590301514 [0m(-0.09910225868225098)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_52.pth
+
+[4m[1m > EPOCH: 2/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:35:50) [0m
+
+[1m   --> TIME: 2024-05-07 10:36:13 -- STEP: 48/52 -- GLOBAL_STEP: 100[0m
+     | > loss_text_ce: 0.024845421314239502  (0.021496274508535862)
+     | > loss_mel_ce: 2.836362361907959  (2.739356885353723)
+     | > loss: 0.03406199812889099  (0.03286729985848069)
+     | > current_lr: 5e-06 
+     | > step_time: 0.207  (0.29568893214066827)
+     | > loader_time: 0.0052  (0.010425383845965065)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.12650585174560547 [0m(+0.09849858283996582)
+     | > avg_loss_text_ce:[92m 0.023126306012272835 [0m(-7.133930921554565e-05)
+     | > avg_loss_mel_ce:[92m 2.5522499084472656 [0m(-0.08551239967346191)
+     | > avg_loss:[92m 2.575376272201538 [0m(-0.08558368682861328)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_104.pth
+
+[4m[1m > EPOCH: 3/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:36:42) [0m
+
+[1m   --> TIME: 2024-05-07 10:37:03 -- STEP: 46/52 -- GLOBAL_STEP: 150[0m
+     | > loss_text_ce: 0.02044849283993244  (0.021543306662984516)
+     | > loss_mel_ce: 2.601915121078491  (2.6320396402607797)
+     | > loss: 0.03121861442923546  (0.03159027380625839)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1789  (0.264136402503304)
+     | > loader_time: 0.0056  (0.013645234315291695)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.028391361236572266 [0m(-0.0981144905090332)
+     | > avg_loss_text_ce:[92m 0.023077890276908875 [0m(-4.8415735363960266e-05)
+     | > avg_loss_mel_ce:[92m 2.483030319213867 [0m(-0.06921958923339844)
+     | > avg_loss:[92m 2.506108283996582 [0m(-0.06926798820495605)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_156.pth
+
+[4m[1m > EPOCH: 4/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:37:30) [0m
+
+[1m   --> TIME: 2024-05-07 10:37:52 -- STEP: 44/52 -- GLOBAL_STEP: 200[0m
+     | > loss_text_ce: 0.02220769040286541  (0.02126544172113592)
+     | > loss_mel_ce: 2.706519603729248  (2.5788323879241943)
+     | > loss: 0.03248484805226326  (0.03095354592766274)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1722  (0.2614886164665222)
+     | > loader_time: 0.0051  (0.04248498786579479)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.14449357986450195 [0m(+0.11610221862792969)
+     | > avg_loss_text_ce:[92m 0.023038167506456375 [0m(-3.972277045249939e-05)
+     | > avg_loss_mel_ce:[92m 2.42863130569458 [0m(-0.05439901351928711)
+     | > avg_loss:[92m 2.451669454574585 [0m(-0.05443882942199707)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_208.pth
+
+[4m[1m > EPOCH: 5/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:38:18) [0m
+
+[1m   --> TIME: 2024-05-07 10:38:40 -- STEP: 42/52 -- GLOBAL_STEP: 250[0m
+     | > loss_text_ce: 0.020293405279517174  (0.02106398148905663)
+     | > loss_mel_ce: 2.378140449523926  (2.543064889453706)
+     | > loss: 0.028552785515785217  (0.030525344246554943)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1789  (0.312296748161316)
+     | > loader_time: 0.0047  (0.010090595199948265)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.03125405311584473 [0m(-0.11323952674865723)
+     | > avg_loss_text_ce:[92m 0.023011891171336174 [0m(-2.627633512020111e-05)
+     | > avg_loss_mel_ce:[92m 2.3950865268707275 [0m(-0.03354477882385254)
+     | > avg_loss:[92m 2.4180984497070312 [0m(-0.03357100486755371)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_260.pth
+
+[4m[1m > EPOCH: 6/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:39:05) [0m
+
+[1m   --> TIME: 2024-05-07 10:39:26 -- STEP: 40/52 -- GLOBAL_STEP: 300[0m
+     | > loss_text_ce: 0.018371036276221275  (0.02146607292816043)
+     | > loss_mel_ce: 2.5599586963653564  (2.4348711013793944)
+     | > loss: 0.030694402754306793  (0.029242109786719084)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1779  (0.3131542444229126)
+     | > loader_time: 0.0048  (0.03798062801361084)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.02917933464050293 [0m(-0.002074718475341797)
+     | > avg_loss_text_ce:[92m 0.022993726655840874 [0m(-1.8164515495300293e-05)
+     | > avg_loss_mel_ce:[92m 2.3679182529449463 [0m(-0.02716827392578125)
+     | > avg_loss:[92m 2.3909120559692383 [0m(-0.02718639373779297)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_312.pth
+
+[4m[1m > EPOCH: 7/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:39:54) [0m
+
+[1m   --> TIME: 2024-05-07 10:40:14 -- STEP: 38/52 -- GLOBAL_STEP: 350[0m
+     | > loss_text_ce: 0.020475314930081367  (0.021064547723845434)
+     | > loss_mel_ce: 2.413947582244873  (2.3917069686086556)
+     | > loss: 0.028981225565075874  (0.028723471062748057)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1945  (0.29196249183855555)
+     | > loader_time: 0.0052  (0.05720925331115721)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.036164283752441406 [0m(+0.0069849491119384766)
+     | > avg_loss_text_ce:[92m 0.022977884858846664 [0m(-1.584179699420929e-05)
+     | > avg_loss_mel_ce:[92m 2.345956563949585 [0m(-0.021961688995361328)
+     | > avg_loss:[92m 2.368934392929077 [0m(-0.021977663040161133)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_364.pth
+
+[4m[1m > EPOCH: 8/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:40:41) [0m
+
+[1m   --> TIME: 2024-05-07 10:41:00 -- STEP: 36/52 -- GLOBAL_STEP: 400[0m
+     | > loss_text_ce: 0.019526297226548195  (0.021023403542737167)
+     | > loss_mel_ce: 2.1421875953674316  (2.3856510321299234)
+     | > loss: 0.025734689086675644  (0.028650886793103483)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2363  (0.2762704888979594)
+     | > loader_time: 0.0054  (0.06621053483751085)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.038332223892211914 [0m(+0.002167940139770508)
+     | > avg_loss_text_ce:[92m 0.022963417693972588 [0m(-1.4467164874076843e-05)
+     | > avg_loss_mel_ce:[92m 2.3260321617126465 [0m(-0.019924402236938477)
+     | > avg_loss:[92m 2.3489956855773926 [0m(-0.01993870735168457)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_416.pth
+
+[4m[1m > EPOCH: 9/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:41:26) [0m
+
+[1m   --> TIME: 2024-05-07 10:41:46 -- STEP: 34/52 -- GLOBAL_STEP: 450[0m
+     | > loss_text_ce: 0.022785725072026253  (0.021337556324022657)
+     | > loss_mel_ce: 2.3517792224884033  (2.322183405651766)
+     | > loss: 0.02826862968504429  (0.02789905946701765)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2688  (0.32671840050641227)
+     | > loader_time: 0.0143  (0.04646625238306384)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.0345005989074707 [0m(-0.003831624984741211)
+     | > avg_loss_text_ce:[92m 0.02294839173555374 [0m(-1.502595841884613e-05)
+     | > avg_loss_mel_ce:[92m 2.307579278945923 [0m(-0.018452882766723633)
+     | > avg_loss:[92m 2.3305277824401855 [0m(-0.01846790313720703)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_468.pth
+
+[4m[1m > EPOCH: 10/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:42:15) [0m
+
+[1m   --> TIME: 2024-05-07 10:42:33 -- STEP: 32/52 -- GLOBAL_STEP: 500[0m
+     | > loss_text_ce: 0.019496876746416092  (0.0209911668789573)
+     | > loss_mel_ce: 2.07077956199646  (2.323680877685547)
+     | > loss: 0.024884244427084923  (0.02791276277275756)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2857  (0.2916486188769341)
+     | > loader_time: 0.028  (0.037930093705654144)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.03218245506286621 [0m(-0.002318143844604492)
+     | > avg_loss_text_ce:[92m 0.022930556908249855 [0m(-1.7834827303886414e-05)
+     | > avg_loss_mel_ce:[92m 2.289844274520874 [0m(-0.017735004425048828)
+     | > avg_loss:[92m 2.312774896621704 [0m(-0.017752885818481445)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_520.pth
+
+[4m[1m > EPOCH: 11/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:43:01) [0m
+
+[1m   --> TIME: 2024-05-07 10:43:18 -- STEP: 30/52 -- GLOBAL_STEP: 550[0m
+     | > loss_text_ce: 0.022340701892971992  (0.021040500452121098)
+     | > loss_mel_ce: 2.3161590099334717  (2.291659959157309)
+     | > loss: 0.027839284390211105  (0.0275321489199996)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2086  (0.2839016834894817)
+     | > loader_time: 0.0058  (0.09185161590576171)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.03668713569641113 [0m(+0.004504680633544922)
+     | > avg_loss_text_ce:[92m 0.022911548614501953 [0m(-1.9008293747901917e-05)
+     | > avg_loss_mel_ce:[92m 2.2728986740112305 [0m(-0.016945600509643555)
+     | > avg_loss:[92m 2.2958102226257324 [0m(-0.01696467399597168)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_572.pth
+
+[4m[1m > EPOCH: 12/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:43:45) [0m
+
+[1m   --> TIME: 2024-05-07 10:44:02 -- STEP: 28/52 -- GLOBAL_STEP: 600[0m
+     | > loss_text_ce: 0.024698523804545403  (0.020739630729492222)
+     | > loss_mel_ce: 2.298252820968628  (2.2737300992012024)
+     | > loss: 0.02765418216586113  (0.027315115755689994)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1949  (0.30970574276787893)
+     | > loader_time: 0.0262  (0.10629719495773314)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.03017282485961914 [0m(-0.006514310836791992)
+     | > avg_loss_text_ce:[92m 0.022889096289873123 [0m(-2.2452324628829956e-05)
+     | > avg_loss_mel_ce:[92m 2.259035348892212 [0m(-0.013863325119018555)
+     | > avg_loss:[92m 2.2819244861602783 [0m(-0.013885736465454102)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_624.pth
+
+[4m[1m > EPOCH: 13/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:44:35) [0m
+
+[1m   --> TIME: 2024-05-07 10:44:52 -- STEP: 26/52 -- GLOBAL_STEP: 650[0m
+     | > loss_text_ce: 0.021982762962579727  (0.0206662008825403)
+     | > loss_mel_ce: 2.303093910217285  (2.2461222547751207)
+     | > loss: 0.027679484337568283  (0.02698557723600131)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2778  (0.3162372203973624)
+     | > loader_time: 0.0144  (0.008995358760540305)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.03623533248901367 [0m(+0.006062507629394531)
+     | > avg_loss_text_ce:[92m 0.022865822538733482 [0m(-2.3273751139640808e-05)
+     | > avg_loss_mel_ce:[92m 2.248342275619507 [0m(-0.010693073272705078)
+     | > avg_loss:[92m 2.2712080478668213 [0m(-0.010716438293457031)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_676.pth
+
+[4m[1m > EPOCH: 14/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:45:25) [0m
+
+[1m   --> TIME: 2024-05-07 10:45:40 -- STEP: 24/52 -- GLOBAL_STEP: 700[0m
+     | > loss_text_ce: 0.023349864408373833  (0.020503037376329303)
+     | > loss_mel_ce: 2.3003265857696533  (2.246497397621473)
+     | > loss: 0.027662813663482666  (0.026988100648547213)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2724  (0.3151533703009287)
+     | > loader_time: 0.0057  (0.10201697548230489)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.0387873649597168 [0m(+0.002552032470703125)
+     | > avg_loss_text_ce:[92m 0.022841233760118484 [0m(-2.4588778614997864e-05)
+     | > avg_loss_mel_ce:[92m 2.2392349243164062 [0m(-0.009107351303100586)
+     | > avg_loss:[92m 2.2620761394500732 [0m(-0.009131908416748047)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_728.pth
+
+[4m[1m > EPOCH: 15/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:46:09) [0m
+
+[1m   --> TIME: 2024-05-07 10:46:24 -- STEP: 22/52 -- GLOBAL_STEP: 750[0m
+     | > loss_text_ce: 0.019181715324521065  (0.020751298235898667)
+     | > loss_mel_ce: 2.2467188835144043  (2.1863559484481807)
+     | > loss: 0.026975007727742195  (0.026275086724622684)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2458  (0.39262458411130036)
+     | > loader_time: 0.0222  (0.036089940504594284)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.03945636749267578 [0m(+0.0006690025329589844)
+     | > avg_loss_text_ce:[92m 0.02281927317380905 [0m(-2.1960586309432983e-05)
+     | > avg_loss_mel_ce:[92m 2.229041814804077 [0m(-0.010193109512329102)
+     | > avg_loss:[92m 2.251861095428467 [0m(-0.010215044021606445)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_780.pth
+
+[4m[1m > EPOCH: 16/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:46:58) [0m
+
+[1m   --> TIME: 2024-05-07 10:47:12 -- STEP: 20/52 -- GLOBAL_STEP: 800[0m
+     | > loss_text_ce: 0.019357502460479736  (0.020864642783999444)
+     | > loss_mel_ce: 2.067803144454956  (2.1550850331783296)
+     | > loss: 0.02484714984893799  (0.025904163159430026)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2337  (0.36439201831817625)
+     | > loader_time: 0.0093  (0.0549965500831604)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.09604811668395996 [0m(+0.05659174919128418)
+     | > avg_loss_text_ce:[92m 0.022793717682361603 [0m(-2.555549144744873e-05)
+     | > avg_loss_mel_ce:[92m 2.2200992107391357 [0m(-0.008942604064941406)
+     | > avg_loss:[92m 2.2428929805755615 [0m(-0.008968114852905273)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_832.pth
+
+[4m[1m > EPOCH: 17/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:47:47) [0m
+
+[1m   --> TIME: 2024-05-07 10:47:59 -- STEP: 18/52 -- GLOBAL_STEP: 850[0m
+     | > loss_text_ce: 0.020303258672356606  (0.02052862135072549)
+     | > loss_mel_ce: 2.130746364593506  (2.137399355570475)
+     | > loss: 0.02560773305594921  (0.02568961948984199)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3755  (0.39235805140601265)
+     | > loader_time: 0.0291  (0.033203217718336314)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.07280254364013672 [0m(-0.023245573043823242)
+     | > avg_loss_text_ce:[92m 0.022766301408410072 [0m(-2.7416273951530457e-05)
+     | > avg_loss_mel_ce:[92m 2.2130401134490967 [0m(-0.0070590972900390625)
+     | > avg_loss:[92m 2.235806465148926 [0m(-0.007086515426635742)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_884.pth
+
+[4m[1m > EPOCH: 18/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:48:38) [0m
+
+[1m   --> TIME: 2024-05-07 10:48:50 -- STEP: 16/52 -- GLOBAL_STEP: 900[0m
+     | > loss_text_ce: 0.022664222866296768  (0.020369205507449806)
+     | > loss_mel_ce: 2.694063186645508  (2.1910523250699043)
+     | > loss: 0.03234199434518814  (0.026326447492465377)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2336  (0.3361324071884155)
+     | > loader_time: 0.0054  (0.07648779451847076)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.06305718421936035 [0m(-0.009745359420776367)
+     | > avg_loss_text_ce:[92m 0.022739754989743233 [0m(-2.65464186668396e-05)
+     | > avg_loss_mel_ce:[92m 2.206552267074585 [0m(-0.006487846374511719)
+     | > avg_loss:[92m 2.2292919158935547 [0m(-0.006514549255371094)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_936.pth
+
+[4m[1m > EPOCH: 19/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:49:26) [0m
+
+[1m   --> TIME: 2024-05-07 10:49:37 -- STEP: 14/52 -- GLOBAL_STEP: 950[0m
+     | > loss_text_ce: 0.024061914533376694  (0.019863120014114038)
+     | > loss_mel_ce: 2.0663340091705322  (2.0219278591019765)
+     | > loss: 0.024885665625333786  (0.024307035841047764)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2533  (0.3684524638312204)
+     | > loader_time: 0.0089  (0.00727564947945731)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.08680200576782227 [0m(+0.023744821548461914)
+     | > avg_loss_text_ce:[92m 0.02271360531449318 [0m(-2.6149675250053406e-05)
+     | > avg_loss_mel_ce:[92m 2.2001404762268066 [0m(-0.00641179084777832)
+     | > avg_loss:[92m 2.2228541374206543 [0m(-0.006437778472900391)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_988.pth
+
+[4m[1m > EPOCH: 20/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:50:15) [0m
+
+[1m   --> TIME: 2024-05-07 10:50:25 -- STEP: 12/52 -- GLOBAL_STEP: 1000[0m
+     | > loss_text_ce: 0.020663978531956673  (0.02051505275691549)
+     | > loss_mel_ce: 2.1154184341430664  (2.1173401276270547)
+     | > loss: 0.025429552420973778  (0.02545065712183714)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3681  (0.4822635253270467)
+     | > loader_time: 0.0058  (0.05170867840449015)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.10575270652770996 [0m(+0.018950700759887695)
+     | > avg_loss_text_ce:[92m 0.022688033059239388 [0m(-2.557225525379181e-05)
+     | > avg_loss_mel_ce:[92m 2.1936941146850586 [0m(-0.006446361541748047)
+     | > avg_loss:[92m 2.2163822650909424 [0m(-0.006471872329711914)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1040.pth
+
+[4m[1m > EPOCH: 21/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:51:02) [0m
+
+[1m   --> TIME: 2024-05-07 10:51:11 -- STEP: 10/52 -- GLOBAL_STEP: 1050[0m
+     | > loss_text_ce: 0.0231170617043972  (0.02135663665831089)
+     | > loss_mel_ce: 2.069535493850708  (2.0462113857269286)
+     | > loss: 0.024912530556321144  (0.024613905511796475)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3096  (0.46563770771026614)
+     | > loader_time: 0.0255  (0.0626941442489624)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.0991826057434082 [0m(-0.006570100784301758)
+     | > avg_loss_text_ce:[92m 0.02266249991953373 [0m(-2.553313970565796e-05)
+     | > avg_loss_mel_ce:[92m 2.187317132949829 [0m(-0.006376981735229492)
+     | > avg_loss:[92m 2.20997953414917 [0m(-0.006402730941772461)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1092.pth
+
+[4m[1m > EPOCH: 22/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:51:52) [0m
+
+[1m   --> TIME: 2024-05-07 10:52:01 -- STEP: 8/52 -- GLOBAL_STEP: 1100[0m
+     | > loss_text_ce: 0.023262742906808853  (0.020504563814029098)
+     | > loss_mel_ce: 1.927937388420105  (2.0493217408657074)
+     | > loss: 0.02322857268154621  (0.024640789721161127)
+     | > current_lr: 5e-06 
+     | > step_time: 0.5514  (0.4301735460758209)
+     | > loader_time: 0.0361  (0.013832449913024902)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.07816934585571289 [0m(-0.021013259887695312)
+     | > avg_loss_text_ce:[92m 0.022637750953435898 [0m(-2.4748966097831726e-05)
+     | > avg_loss_mel_ce:[92m 2.1813137531280518 [0m(-0.006003379821777344)
+     | > avg_loss:[92m 2.203951597213745 [0m(-0.006027936935424805)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1144.pth
+
+[4m[1m > EPOCH: 23/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:52:41) [0m
+
+[1m   --> TIME: 2024-05-07 10:52:49 -- STEP: 6/52 -- GLOBAL_STEP: 1150[0m
+     | > loss_text_ce: 0.01928892731666565  (0.020821649581193924)
+     | > loss_mel_ce: 2.3696229457855225  (2.065738022327423)
+     | > loss: 0.02843942865729332  (0.024839996670683224)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3568  (0.44943400224049884)
+     | > loader_time: 0.012  (0.011900822321573893)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.04763674736022949 [0m(-0.0305325984954834)
+     | > avg_loss_text_ce:[92m 0.022614736109972 [0m(-2.3014843463897705e-05)
+     | > avg_loss_mel_ce:[92m 2.1755897998809814 [0m(-0.0057239532470703125)
+     | > avg_loss:[92m 2.198204517364502 [0m(-0.005747079849243164)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1196.pth
+
+[4m[1m > EPOCH: 24/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:53:30) [0m
+
+[1m   --> TIME: 2024-05-07 10:53:37 -- STEP: 4/52 -- GLOBAL_STEP: 1200[0m
+     | > loss_text_ce: 0.01907079853117466  (0.020410669036209583)
+     | > loss_mel_ce: 2.0995328426361084  (2.114352524280548)
+     | > loss: 0.02522147260606289  (0.025413847528398037)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3939  (0.46032148599624634)
+     | > loader_time: 0.0172  (0.45400190353393555)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.1010894775390625 [0m(+0.05345273017883301)
+     | > avg_loss_text_ce:[92m 0.022595055401325226 [0m(-1.9680708646774292e-05)
+     | > avg_loss_mel_ce:[92m 2.1706502437591553 [0m(-0.004939556121826172)
+     | > avg_loss:[92m 2.1932454109191895 [0m(-0.0049591064453125)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1248.pth
+
+[4m[1m > EPOCH: 25/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:54:19) [0m
+
+[1m   --> TIME: 2024-05-07 10:54:26 -- STEP: 2/52 -- GLOBAL_STEP: 1250[0m
+     | > loss_text_ce: 0.019574489444494247  (0.021146374754607677)
+     | > loss_mel_ce: 2.2040038108825684  (2.1435582637786865)
+     | > loss: 0.026471169665455818  (0.02577029261738062)
+     | > current_lr: 5e-06 
+     | > step_time: 0.5959  (0.5026601552963257)
+     | > loader_time: 0.0056  (0.005645155906677246)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.029839515686035156 [0m(-0.07124996185302734)
+     | > avg_loss_text_ce:[92m 0.022576119750738144 [0m(-1.893565058708191e-05)
+     | > avg_loss_mel_ce:[92m 2.1664092540740967 [0m(-0.004240989685058594)
+     | > avg_loss:[92m 2.1889853477478027 [0m(-0.004260063171386719)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1300.pth
+
+[4m[1m > EPOCH: 26/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:55:10) [0m
+
+[1m   --> TIME: 2024-05-07 10:55:14 -- STEP: 0/52 -- GLOBAL_STEP: 1300[0m
+     | > loss_text_ce: 0.022135790437459946  (0.022135790437459946)
+     | > loss_mel_ce: 1.8290995359420776  (1.8290995359420776)
+     | > loss: 0.022038515657186508  (0.022038515657186508)
+     | > current_lr: 5e-06 
+     | > step_time: 0.8871  (0.887131929397583)
+     | > loader_time: 2.8336  (2.83363676071167)
+
+
+[1m   --> TIME: 2024-05-07 10:55:33 -- STEP: 50/52 -- GLOBAL_STEP: 1350[0m
+     | > loss_text_ce: 0.01943012699484825  (0.020061936117708682)
+     | > loss_mel_ce: 1.796584963798523  (1.95656418800354)
+     | > loss: 0.021619228646159172  (0.023531264029443263)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2326  (0.27041537284851075)
+     | > loader_time: 0.0052  (0.014594817161560057)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.06593632698059082 [0m(+0.036096811294555664)
+     | > avg_loss_text_ce:[92m 0.022559037432074547 [0m(-1.7082318663597107e-05)
+     | > avg_loss_mel_ce:[92m 2.1628499031066895 [0m(-0.0035593509674072266)
+     | > avg_loss:[92m 2.1854088306427 [0m(-0.003576517105102539)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1352.pth
+
+[4m[1m > EPOCH: 27/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:55:59) [0m
+
+[1m   --> TIME: 2024-05-07 10:56:21 -- STEP: 48/52 -- GLOBAL_STEP: 1400[0m
+     | > loss_text_ce: 0.02178402617573738  (0.0200319328578189)
+     | > loss_mel_ce: 2.025378465652466  (1.9201604103048642)
+     | > loss: 0.024370983242988586  (0.023097528261132542)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1957  (0.2658025423685709)
+     | > loader_time: 0.0047  (0.010493735472361246)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.03275465965270996 [0m(-0.03318166732788086)
+     | > avg_loss_text_ce:[92m 0.022542914375662804 [0m(-1.6123056411743164e-05)
+     | > avg_loss_mel_ce:[92m 2.159637212753296 [0m(-0.0032126903533935547)
+     | > avg_loss:[92m 2.182180166244507 [0m(-0.0032286643981933594)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1404.pth
+
+[4m[1m > EPOCH: 28/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:56:49) [0m
+
+[1m   --> TIME: 2024-05-07 10:57:11 -- STEP: 46/52 -- GLOBAL_STEP: 1450[0m
+     | > loss_text_ce: 0.022191226482391357  (0.020379715882565663)
+     | > loss_mel_ce: 2.2892074584960938  (1.9158068428868833)
+     | > loss: 0.027516651898622513  (0.023049840501145176)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1601  (0.2833666697792386)
+     | > loader_time: 0.0048  (0.00773824816164763)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.03136873245239258 [0m(-0.0013859272003173828)
+     | > avg_loss_text_ce:[92m 0.022528555244207382 [0m(-1.4359131455421448e-05)
+     | > avg_loss_mel_ce:[92m 2.1567041873931885 [0m(-0.002933025360107422)
+     | > avg_loss:[92m 2.1792328357696533 [0m(-0.0029473304748535156)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1456.pth
+
+[4m[1m > EPOCH: 29/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:57:36) [0m
+
+[1m   --> TIME: 2024-05-07 10:57:58 -- STEP: 44/52 -- GLOBAL_STEP: 1500[0m
+     | > loss_text_ce: 0.02261260524392128  (0.020002388564700425)
+     | > loss_mel_ce: 2.287419319152832  (1.9380647783929652)
+     | > loss: 0.02750037983059883  (0.02331032392314889)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2282  (0.28975620053031226)
+     | > loader_time: 0.0056  (0.008101089434190228)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.029106616973876953 [0m(-0.002262115478515625)
+     | > avg_loss_text_ce:[92m 0.02251611463725567 [0m(-1.2440606951713562e-05)
+     | > avg_loss_mel_ce:[92m 2.154668092727661 [0m(-0.0020360946655273438)
+     | > avg_loss:[92m 2.1771841049194336 [0m(-0.0020487308502197266)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1508.pth
+
+[4m[1m > EPOCH: 30/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:58:24) [0m
+
+[1m   --> TIME: 2024-05-07 10:58:45 -- STEP: 42/52 -- GLOBAL_STEP: 1550[0m
+     | > loss_text_ce: 0.022942041978240013  (0.019973804109862874)
+     | > loss_mel_ce: 1.8641353845596313  (1.885032934801919)
+     | > loss: 0.022465208545327187  (0.022678652068688757)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2268  (0.2766206491561163)
+     | > loader_time: 0.005  (0.009686776569911409)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.09245038032531738 [0m(+0.06334376335144043)
+     | > avg_loss_text_ce:[92m 0.022503811866044998 [0m(-1.2302771210670471e-05)
+     | > avg_loss_mel_ce:[92m 2.153618335723877 [0m(-0.0010497570037841797)
+     | > avg_loss:[92m 2.1761221885681152 [0m(-0.0010619163513183594)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1560.pth
+
+[4m[1m > EPOCH: 31/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 10:59:12) [0m
+
+[1m   --> TIME: 2024-05-07 10:59:34 -- STEP: 40/52 -- GLOBAL_STEP: 1600[0m
+     | > loss_text_ce: 0.0197564959526062  (0.020454257586970927)
+     | > loss_mel_ce: 1.8669847249984741  (1.9148498892784118)
+     | > loss: 0.02246120385825634  (0.023039335431531072)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1785  (0.29542558193206797)
+     | > loader_time: 0.0047  (0.030179864168167113)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.05984377861022949 [0m(-0.03260660171508789)
+     | > avg_loss_text_ce:[92m 0.022491339594125748 [0m(-1.2472271919250488e-05)
+     | > avg_loss_mel_ce:[92m 2.153379440307617 [0m(-0.00023889541625976562)
+     | > avg_loss:[92m 2.175870895385742 [0m(-0.0002512931823730469)
+
+ > BEST MODEL : /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8/best_model_1612.pth
+
+[4m[1m > EPOCH: 32/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:00:01) [0m
+
+[1m   --> TIME: 2024-05-07 11:00:22 -- STEP: 38/52 -- GLOBAL_STEP: 1650[0m
+     | > loss_text_ce: 0.021440347656607628  (0.020265904549313218)
+     | > loss_mel_ce: 1.6535911560058594  (1.8523376301715249)
+     | > loss: 0.019940851256251335  (0.02229289955606586)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1738  (0.3068616515711734)
+     | > loader_time: 0.0053  (0.02983202432331286)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.03018665313720703 [0m(-0.02965712547302246)
+     | > avg_loss_text_ce:[92m 0.022478759288787842 [0m(-1.2580305337905884e-05)
+     | > avg_loss_mel_ce:[91m 2.15350079536438 [0m(+0.00012135505676269531)
+     | > avg_loss:[91m 2.1759796142578125 [0m(+0.0001087188720703125)
+
+
+[4m[1m > EPOCH: 33/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:00:29) [0m
+
+[1m   --> TIME: 2024-05-07 11:00:49 -- STEP: 36/52 -- GLOBAL_STEP: 1700[0m
+     | > loss_text_ce: 0.019507672637701035  (0.020267468670176134)
+     | > loss_mel_ce: 1.7303924560546875  (1.8552034066783056)
+     | > loss: 0.02083214372396469  (0.022327034475488797)
+     | > current_lr: 5e-06 
+     | > step_time: 0.227  (0.27917012241151595)
+     | > loader_time: 0.0127  (0.045156578222910575)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.027817249298095703 [0m(-0.002369403839111328)
+     | > avg_loss_text_ce:[92m 0.022466866299510002 [0m(-1.189298927783966e-05)
+     | > avg_loss_mel_ce:[91m 2.153897285461426 [0m(+0.00039649009704589844)
+     | > avg_loss:[91m 2.1763641834259033 [0m(+0.0003845691680908203)
+
+
+[4m[1m > EPOCH: 34/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:00:58) [0m
+
+[1m   --> TIME: 2024-05-07 11:01:16 -- STEP: 34/52 -- GLOBAL_STEP: 1750[0m
+     | > loss_text_ce: 0.020606989040970802  (0.019517706981038347)
+     | > loss_mel_ce: 1.6090008020401  (1.810482193441952)
+     | > loss: 0.01940009370446205  (0.021785713622675222)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2256  (0.31372159368851604)
+     | > loader_time: 0.0175  (0.011781944948084214)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.027136564254760742 [0m(-0.0006806850433349609)
+     | > avg_loss_text_ce:[92m 0.022452175617218018 [0m(-1.4690682291984558e-05)
+     | > avg_loss_mel_ce:[91m 2.1547796726226807 [0m(+0.0008823871612548828)
+     | > avg_loss:[91m 2.177231788635254 [0m(+0.0008676052093505859)
+
+
+[4m[1m > EPOCH: 35/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:01:24) [0m
+
+[1m   --> TIME: 2024-05-07 11:01:43 -- STEP: 32/52 -- GLOBAL_STEP: 1800[0m
+     | > loss_text_ce: 0.01773887872695923  (0.019804904237389565)
+     | > loss_mel_ce: 1.6790862083435059  (1.7619926892220974)
+     | > loss: 0.020200299099087715  (0.021211876475717872)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2419  (0.3318602442741394)
+     | > loader_time: 0.0074  (0.013053879141807556)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.027786970138549805 [0m(+0.0006504058837890625)
+     | > avg_loss_text_ce:[92m 0.022438015788793564 [0m(-1.4159828424453735e-05)
+     | > avg_loss_mel_ce:[91m 2.156348943710327 [0m(+0.0015692710876464844)
+     | > avg_loss:[91m 2.1787869930267334 [0m(+0.0015552043914794922)
+
+
+[4m[1m > EPOCH: 36/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:01:52) [0m
+
+[1m   --> TIME: 2024-05-07 11:02:10 -- STEP: 30/52 -- GLOBAL_STEP: 1850[0m
+     | > loss_text_ce: 0.019532445818185806  (0.02012060713022947)
+     | > loss_mel_ce: 1.7465959787368774  (1.722187348206838)
+     | > loss: 0.021025339141488075  (0.020741761662065983)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2469  (0.32760270436604816)
+     | > loader_time: 0.0238  (0.010392117500305175)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.028734922409057617 [0m(+0.0009479522705078125)
+     | > avg_loss_text_ce:[92m 0.022424155846238136 [0m(-1.3859942555427551e-05)
+     | > avg_loss_mel_ce:[91m 2.158726215362549 [0m(+0.0023772716522216797)
+     | > avg_loss:[91m 2.181150436401367 [0m(+0.002363443374633789)
+
+
+[4m[1m > EPOCH: 37/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:02:20) [0m
+
+[1m   --> TIME: 2024-05-07 11:02:38 -- STEP: 28/52 -- GLOBAL_STEP: 1900[0m
+     | > loss_text_ce: 0.018845869228243828  (0.020176736172288656)
+     | > loss_mel_ce: 1.6245496273040771  (1.804962796824319)
+     | > loss: 0.019564233720302582  (0.021727851991142546)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2402  (0.33909766163144794)
+     | > loader_time: 0.0141  (0.10064542293548584)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.02736353874206543 [0m(-0.0013713836669921875)
+     | > avg_loss_text_ce:[92m 0.022410843521356583 [0m(-1.331232488155365e-05)
+     | > avg_loss_mel_ce:[91m 2.161651134490967 [0m(+0.0029249191284179688)
+     | > avg_loss:[91m 2.1840620040893555 [0m(+0.0029115676879882812)
+
+
+[4m[1m > EPOCH: 38/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:02:49) [0m
+
+[1m   --> TIME: 2024-05-07 11:03:05 -- STEP: 26/52 -- GLOBAL_STEP: 1950[0m
+     | > loss_text_ce: 0.018687544390559196  (0.01973510891772234)
+     | > loss_mel_ce: 1.779268503189087  (1.7290601684496953)
+     | > loss: 0.021404238417744637  (0.020818991729846366)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2671  (0.33880096215468186)
+     | > loader_time: 0.0172  (0.05403531514681303)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.028006315231323242 [0m(+0.0006427764892578125)
+     | > avg_loss_text_ce:[92m 0.022397568449378014 [0m(-1.327507197856903e-05)
+     | > avg_loss_mel_ce:[91m 2.1652162075042725 [0m(+0.003565073013305664)
+     | > avg_loss:[91m 2.1876137256622314 [0m(+0.0035517215728759766)
+
+
+[4m[1m > EPOCH: 39/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:03:16) [0m
+
+[1m   --> TIME: 2024-05-07 11:03:31 -- STEP: 24/52 -- GLOBAL_STEP: 2000[0m
+     | > loss_text_ce: 0.01687520556151867  (0.01952548239690562)
+     | > loss_mel_ce: 1.6309934854507446  (1.6952497561772664)
+     | > loss: 0.019617484882473946  (0.020413991374274097)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2453  (0.35291444261868793)
+     | > loader_time: 0.0274  (0.01017734408378601)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.02725362777709961 [0m(-0.0007526874542236328)
+     | > avg_loss_text_ce:[92m 0.022384336218237877 [0m(-1.3232231140136719e-05)
+     | > avg_loss_mel_ce:[91m 2.1688647270202637 [0m(+0.003648519515991211)
+     | > avg_loss:[91m 2.191249132156372 [0m(+0.003635406494140625)
+
+
+[4m[1m > EPOCH: 40/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:03:43) [0m
+
+[1m   --> TIME: 2024-05-07 11:03:58 -- STEP: 22/52 -- GLOBAL_STEP: 2050[0m
+     | > loss_text_ce: 0.020396960899233818  (0.019812435673719098)
+     | > loss_mel_ce: 1.6524711847305298  (1.6704037622971968)
+     | > loss: 0.01991509646177292  (0.020121621814641086)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2346  (0.42054461349140515)
+     | > loader_time: 0.0057  (0.02414605834267356)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.027226686477661133 [0m(-2.6941299438476562e-05)
+     | > avg_loss_text_ce:[92m 0.02237406000494957 [0m(-1.027621328830719e-05)
+     | > avg_loss_mel_ce:[91m 2.172938108444214 [0m(+0.004073381423950195)
+     | > avg_loss:[91m 2.195312261581421 [0m(+0.004063129425048828)
+
+
+[4m[1m > EPOCH: 41/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:04:11) [0m
+
+[1m   --> TIME: 2024-05-07 11:04:26 -- STEP: 20/52 -- GLOBAL_STEP: 2100[0m
+     | > loss_text_ce: 0.02012287825345993  (0.019403347559273244)
+     | > loss_mel_ce: 1.705378770828247  (1.6933474600315095)
+     | > loss: 0.020541686564683914  (0.020389891136437653)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2413  (0.39379397630691526)
+     | > loader_time: 0.0066  (0.014707338809967042)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.027179718017578125 [0m(-4.696846008300781e-05)
+     | > avg_loss_text_ce:[92m 0.022365625947713852 [0m(-8.434057235717773e-06)
+     | > avg_loss_mel_ce:[91m 2.1775221824645996 [0m(+0.004584074020385742)
+     | > avg_loss:[91m 2.199887752532959 [0m(+0.004575490951538086)
+
+
+[4m[1m > EPOCH: 42/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:04:39) [0m
+
+[1m   --> TIME: 2024-05-07 11:04:52 -- STEP: 18/52 -- GLOBAL_STEP: 2150[0m
+     | > loss_text_ce: 0.017423057928681374  (0.01967140338901017)
+     | > loss_mel_ce: 1.572041392326355  (1.7080504165755377)
+     | > loss: 0.018922196701169014  (0.020568117292390928)
+     | > current_lr: 5e-06 
+     | > step_time: 0.318  (0.35909827550252277)
+     | > loader_time: 0.0142  (0.13093139065636528)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.027121543884277344 [0m(-5.817413330078125e-05)
+     | > avg_loss_text_ce:[92m 0.022358711808919907 [0m(-6.9141387939453125e-06)
+     | > avg_loss_mel_ce:[91m 2.1825342178344727 [0m(+0.005012035369873047)
+     | > avg_loss:[91m 2.204892873764038 [0m(+0.0050051212310791016)
+
+
+[4m[1m > EPOCH: 43/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:05:06) [0m
+
+[1m   --> TIME: 2024-05-07 11:05:20 -- STEP: 16/52 -- GLOBAL_STEP: 2200[0m
+     | > loss_text_ce: 0.02120075188577175  (0.02010748302564025)
+     | > loss_mel_ce: 1.6093122959136963  (1.6561508029699326)
+     | > loss: 0.0194108709692955  (0.019955456373281777)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3279  (0.4609224647283554)
+     | > loader_time: 0.0057  (0.10453829169273378)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.02866816520690918 [0m(+0.001546621322631836)
+     | > avg_loss_text_ce:[92m 0.022352613508701324 [0m(-6.098300218582153e-06)
+     | > avg_loss_mel_ce:[91m 2.187991142272949 [0m(+0.0054569244384765625)
+     | > avg_loss:[91m 2.210343837738037 [0m(+0.0054509639739990234)
+
+
+[4m[1m > EPOCH: 44/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:05:34) [0m
+
+[1m   --> TIME: 2024-05-07 11:05:45 -- STEP: 14/52 -- GLOBAL_STEP: 2250[0m
+     | > loss_text_ce: 0.021406061947345734  (0.020257861220410893)
+     | > loss_mel_ce: 1.7678331136703491  (1.6224614041192191)
+     | > loss: 0.02130046673119068  (0.019556182170552865)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2471  (0.3572444064276559)
+     | > loader_time: 0.0055  (0.09210876056126185)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.028092384338378906 [0m(-0.0005757808685302734)
+     | > avg_loss_text_ce:[92m 0.022348279133439064 [0m(-4.334375262260437e-06)
+     | > avg_loss_mel_ce:[91m 2.1935925483703613 [0m(+0.005601406097412109)
+     | > avg_loss:[91m 2.2159407138824463 [0m(+0.00559687614440918)
+
+
+[4m[1m > EPOCH: 45/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:06:01) [0m
+
+[1m   --> TIME: 2024-05-07 11:06:13 -- STEP: 12/52 -- GLOBAL_STEP: 2300[0m
+     | > loss_text_ce: 0.021068906411528587  (0.019988527055829763)
+     | > loss_mel_ce: 1.5611244440078735  (1.5437190731366475)
+     | > loss: 0.018835635855793953  (0.01861556712538004)
+     | > current_lr: 5e-06 
+     | > step_time: 0.4121  (0.4148610234260559)
+     | > loader_time: 0.0058  (0.15824989477793378)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.027709484100341797 [0m(-0.0003829002380371094)
+     | > avg_loss_text_ce:[92m 0.022345082834362984 [0m(-3.1962990760803223e-06)
+     | > avg_loss_mel_ce:[91m 2.1996705532073975 [0m(+0.006078004837036133)
+     | > avg_loss:[91m 2.222015619277954 [0m(+0.0060749053955078125)
+
+
+[4m[1m > EPOCH: 46/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:06:29) [0m
+
+[1m   --> TIME: 2024-05-07 11:06:40 -- STEP: 10/52 -- GLOBAL_STEP: 2350[0m
+     | > loss_text_ce: 0.01996379718184471  (0.019481940753757955)
+     | > loss_mel_ce: 1.505802869796753  (1.6032140493392943)
+     | > loss: 0.018163887783885002  (0.019317809864878653)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3692  (0.4665923357009888)
+     | > loader_time: 0.0234  (0.014847850799560547)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.027550458908081055 [0m(-0.0001590251922607422)
+     | > avg_loss_text_ce:[92m 0.022342592477798462 [0m(-2.4903565645217896e-06)
+     | > avg_loss_mel_ce:[91m 2.2068145275115967 [0m(+0.007143974304199219)
+     | > avg_loss:[91m 2.2291572093963623 [0m(+0.007141590118408203)
+
+
+[4m[1m > EPOCH: 47/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:06:57) [0m
+
+[1m   --> TIME: 2024-05-07 11:07:06 -- STEP: 8/52 -- GLOBAL_STEP: 2400[0m
+     | > loss_text_ce: 0.019993538036942482  (0.01965385628864169)
+     | > loss_mel_ce: 1.4862611293792725  (1.5602326840162277)
+     | > loss: 0.017931602895259857  (0.018808173248544335)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3142  (0.4355563521385193)
+     | > loader_time: 0.0059  (0.12642621994018555)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.028119564056396484 [0m(+0.0005691051483154297)
+     | > avg_loss_text_ce:[92m 0.022341012954711914 [0m(-1.5795230865478516e-06)
+     | > avg_loss_mel_ce:[91m 2.2149581909179688 [0m(+0.00814366340637207)
+     | > avg_loss:[91m 2.2372992038726807 [0m(+0.00814199447631836)
+
+
+[4m[1m > EPOCH: 48/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:07:23) [0m
+
+[1m   --> TIME: 2024-05-07 11:07:30 -- STEP: 6/52 -- GLOBAL_STEP: 2450[0m
+     | > loss_text_ce: 0.022000418975949287  (0.020595068732897442)
+     | > loss_mel_ce: 1.4828938245773315  (1.5701742966969807)
+     | > loss: 0.017915409058332443  (0.0189377311617136)
+     | > current_lr: 5e-06 
+     | > step_time: 0.4666  (0.5219117800394694)
+     | > loader_time: 0.0066  (0.20295313994089761)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.02849435806274414 [0m(+0.00037479400634765625)
+     | > avg_loss_text_ce:[92m 0.022340690717101097 [0m(-3.2223761081695557e-07)
+     | > avg_loss_mel_ce:[91m 2.223865509033203 [0m(+0.008907318115234375)
+     | > avg_loss:[91m 2.246206283569336 [0m(+0.008907079696655273)
+
+
+[4m[1m > EPOCH: 49/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:07:50) [0m
+
+[1m   --> TIME: 2024-05-07 11:07:57 -- STEP: 4/52 -- GLOBAL_STEP: 2500[0m
+     | > loss_text_ce: 0.018226969987154007  (0.01860414817929268)
+     | > loss_mel_ce: 1.309971570968628  (1.4160845279693604)
+     | > loss: 0.015811888501048088  (0.017079627607017756)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2746  (0.4171670079231262)
+     | > loader_time: 0.0765  (0.47623395919799805)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.028092384338378906 [0m(-0.0004019737243652344)
+     | > avg_loss_text_ce:[91m 0.022340955212712288 [0m(+2.644956111907959e-07)
+     | > avg_loss_mel_ce:[91m 2.2335898876190186 [0m(+0.00972437858581543)
+     | > avg_loss:[91m 2.2559309005737305 [0m(+0.009724617004394531)
+
+
+[4m[1m > EPOCH: 50/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:08:16) [0m
+
+[1m   --> TIME: 2024-05-07 11:08:22 -- STEP: 2/52 -- GLOBAL_STEP: 2550[0m
+     | > loss_text_ce: 0.020842399448156357  (0.018994667567312717)
+     | > loss_mel_ce: 1.3997104167938232  (1.4022881388664246)
+     | > loss: 0.016911344602704048  (0.016920034773647785)
+     | > current_lr: 5e-06 
+     | > step_time: 0.712  (0.6793757677078247)
+     | > loader_time: 0.0059  (0.011650681495666504)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.027703046798706055 [0m(-0.00038933753967285156)
+     | > avg_loss_text_ce:[91m 0.022342102602124214 [0m(+1.1473894119262695e-06)
+     | > avg_loss_mel_ce:[91m 2.243528127670288 [0m(+0.009938240051269531)
+     | > avg_loss:[91m 2.2658703327178955 [0m(+0.009939432144165039)
+
+
+[4m[1m > EPOCH: 51/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:08:44) [0m
+
+[1m   --> TIME: 2024-05-07 11:08:50 -- STEP: 0/52 -- GLOBAL_STEP: 2600[0m
+     | > loss_text_ce: 0.019707253202795982  (0.019707253202795982)
+     | > loss_mel_ce: 1.2974821329116821  (1.2974821329116821)
+     | > loss: 0.0156808253377676  (0.0156808253377676)
+     | > current_lr: 5e-06 
+     | > step_time: 0.5965  (0.5964670181274414)
+     | > loader_time: 5.4778  (5.477813959121704)
+
+
+[1m   --> TIME: 2024-05-07 11:09:08 -- STEP: 50/52 -- GLOBAL_STEP: 2650[0m
+     | > loss_text_ce: 0.017485016956925392  (0.018997396752238268)
+     | > loss_mel_ce: 1.450374722480774  (1.430895688533783)
+     | > loss: 0.017474520951509476  (0.01726063217967749)
+     | > current_lr: 5e-06 
+     | > step_time: 0.204  (0.26355859756469724)
+     | > loader_time: 0.0051  (0.00971302509307861)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.027679443359375 [0m(-2.3603439331054688e-05)
+     | > avg_loss_text_ce:[91m 0.022343089804053307 [0m(+9.872019290924072e-07)
+     | > avg_loss_mel_ce:[91m 2.2542941570281982 [0m(+0.010766029357910156)
+     | > avg_loss:[91m 2.276637315750122 [0m(+0.010766983032226562)
+
+
+[4m[1m > EPOCH: 52/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:09:13) [0m
+
+[1m   --> TIME: 2024-05-07 11:09:36 -- STEP: 48/52 -- GLOBAL_STEP: 2700[0m
+     | > loss_text_ce: 0.022017795592546463  (0.019177673190521695)
+     | > loss_mel_ce: 1.5770798921585083  (1.4624958435694377)
+     | > loss: 0.019036877900362015  (0.0176389708261316)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1981  (0.2751462111870447)
+     | > loader_time: 0.0047  (0.04210421442985534)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.027898550033569336 [0m(+0.00021910667419433594)
+     | > avg_loss_text_ce:[91m 0.022344686090946198 [0m(+1.5962868928909302e-06)
+     | > avg_loss_mel_ce:[91m 2.2659244537353516 [0m(+0.01163029670715332)
+     | > avg_loss:[91m 2.28826904296875 [0m(+0.01163172721862793)
+
+
+[4m[1m > EPOCH: 53/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:09:41) [0m
+
+[1m   --> TIME: 2024-05-07 11:10:03 -- STEP: 46/52 -- GLOBAL_STEP: 2750[0m
+     | > loss_text_ce: 0.018417295068502426  (0.019562461777873654)
+     | > loss_mel_ce: 1.3823630809783936  (1.4079159550044849)
+     | > loss: 0.016675956547260284  (0.01699379092568289)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1964  (0.25763196530549415)
+     | > loader_time: 0.0047  (0.011080363522405207)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.02810359001159668 [0m(+0.00020503997802734375)
+     | > avg_loss_text_ce:[91m 0.02234666794538498 [0m(+1.9818544387817383e-06)
+     | > avg_loss_mel_ce:[91m 2.2785677909851074 [0m(+0.01264333724975586)
+     | > avg_loss:[91m 2.3009145259857178 [0m(+0.012645483016967773)
+
+
+[4m[1m > EPOCH: 54/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:10:08) [0m
+
+[1m   --> TIME: 2024-05-07 11:10:30 -- STEP: 44/52 -- GLOBAL_STEP: 2800[0m
+     | > loss_text_ce: 0.0179695226252079  (0.019867177671668197)
+     | > loss_mel_ce: 1.3464488983154297  (1.387917561964555)
+     | > loss: 0.01624307595193386  (0.01675934259864417)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2378  (0.29667690667239105)
+     | > loader_time: 0.0052  (0.03552799875086004)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.0280306339263916 [0m(-7.295608520507812e-05)
+     | > avg_loss_text_ce:[91m 0.022349026054143906 [0m(+2.3581087589263916e-06)
+     | > avg_loss_mel_ce:[91m 2.2922396659851074 [0m(+0.013671875)
+     | > avg_loss:[91m 2.314588785171509 [0m(+0.013674259185791016)
+
+
+[4m[1m > EPOCH: 55/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:10:36) [0m
+
+[1m   --> TIME: 2024-05-07 11:10:57 -- STEP: 42/52 -- GLOBAL_STEP: 2850[0m
+     | > loss_text_ce: 0.01653318852186203  (0.018899379918972652)
+     | > loss_mel_ce: 1.4651037454605103  (1.3914818650200254)
+     | > loss: 0.01763853430747986  (0.01679025324327605)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2066  (0.271813017981393)
+     | > loader_time: 0.0054  (0.011732771283104307)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.0270235538482666 [0m(-0.001007080078125)
+     | > avg_loss_text_ce:[91m 0.02235167846083641 [0m(+2.652406692504883e-06)
+     | > avg_loss_mel_ce:[91m 2.306417465209961 [0m(+0.014177799224853516)
+     | > avg_loss:[91m 2.3287692070007324 [0m(+0.014180421829223633)
+
+
+[4m[1m > EPOCH: 56/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:11:03) [0m
+
+[1m   --> TIME: 2024-05-07 11:11:23 -- STEP: 40/52 -- GLOBAL_STEP: 2900[0m
+     | > loss_text_ce: 0.021144360303878784  (0.01955049633979797)
+     | > loss_mel_ce: 1.3911185264587402  (1.346937224268913)
+     | > loss: 0.016812654212117195  (0.016267711436375978)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2541  (0.30124564170837403)
+     | > loader_time: 0.0053  (0.05724855661392213)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.027561664581298828 [0m(+0.0005381107330322266)
+     | > avg_loss_text_ce:[91m 0.022354137152433395 [0m(+2.4586915969848633e-06)
+     | > avg_loss_mel_ce:[91m 2.322321891784668 [0m(+0.01590442657470703)
+     | > avg_loss:[91m 2.3446760177612305 [0m(+0.015906810760498047)
+
+
+[4m[1m > EPOCH: 57/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:11:30) [0m
+
+[1m   --> TIME: 2024-05-07 11:11:50 -- STEP: 38/52 -- GLOBAL_STEP: 2950[0m
+     | > loss_text_ce: 0.020951254293322563  (0.01923553572085343)
+     | > loss_mel_ce: 1.351384162902832  (1.31550721745742)
+     | > loss: 0.016337327659130096  (0.015889795055907027)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2072  (0.3229091857608996)
+     | > loader_time: 0.0053  (0.011784446866888749)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.027478456497192383 [0m(-8.320808410644531e-05)
+     | > avg_loss_text_ce:[91m 0.02235678769648075 [0m(+2.650544047355652e-06)
+     | > avg_loss_mel_ce:[91m 2.338913679122925 [0m(+0.016591787338256836)
+     | > avg_loss:[91m 2.3612704277038574 [0m(+0.016594409942626953)
+
+
+[4m[1m > EPOCH: 58/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:11:58) [0m
+
+[1m   --> TIME: 2024-05-07 11:12:18 -- STEP: 36/52 -- GLOBAL_STEP: 3000[0m
+     | > loss_text_ce: 0.01829853281378746  (0.019314327277243137)
+     | > loss_mel_ce: 1.282914638519287  (1.261761185195711)
+     | > loss: 0.015490633435547352  (0.015250899208088716)
+     | > current_lr: 5e-06 
+     | > step_time: 0.1881  (0.3106653822792901)
+     | > loader_time: 0.0187  (0.031058920754326716)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.027943134307861328 [0m(+0.0004646778106689453)
+     | > avg_loss_text_ce:[91m 0.022360043600201607 [0m(+3.255903720855713e-06)
+     | > avg_loss_mel_ce:[91m 2.357346534729004 [0m(+0.0184328556060791)
+     | > avg_loss:[91m 2.379706621170044 [0m(+0.018436193466186523)
+
+
+[4m[1m > EPOCH: 59/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:12:25) [0m
+
+[1m   --> TIME: 2024-05-07 11:12:45 -- STEP: 34/52 -- GLOBAL_STEP: 3050[0m
+     | > loss_text_ce: 0.019983429461717606  (0.019456237006713357)
+     | > loss_mel_ce: 1.2715290784835815  (1.2478151496718912)
+     | > loss: 0.015375148504972458  (0.015086564427132116)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2534  (0.35259708937476664)
+     | > loader_time: 0.0345  (0.053251666181227744)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.0278472900390625 [0m(-9.584426879882812e-05)
+     | > avg_loss_text_ce:[91m 0.022363053634762764 [0m(+3.0100345611572266e-06)
+     | > avg_loss_mel_ce:[91m 2.3769192695617676 [0m(+0.019572734832763672)
+     | > avg_loss:[91m 2.399282217025757 [0m(+0.01957559585571289)
+
+
+[4m[1m > EPOCH: 60/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:12:53) [0m
+
+[1m   --> TIME: 2024-05-07 11:13:12 -- STEP: 32/52 -- GLOBAL_STEP: 3100[0m
+     | > loss_text_ce: 0.018098531290888786  (0.019209315709304065)
+     | > loss_mel_ce: 1.1391113996505737  (1.2457714565098286)
+     | > loss: 0.013776307925581932  (0.015059295285027474)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2631  (0.3611767739057541)
+     | > loader_time: 0.0089  (0.01887572556734085)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.028060436248779297 [0m(+0.00021314620971679688)
+     | > avg_loss_text_ce:[91m 0.022365480661392212 [0m(+2.427026629447937e-06)
+     | > avg_loss_mel_ce:[91m 2.398247003555298 [0m(+0.021327733993530273)
+     | > avg_loss:[91m 2.4206125736236572 [0m(+0.02133035659790039)
+
+
+[4m[1m > EPOCH: 61/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:13:21) [0m
+
+[1m   --> TIME: 2024-05-07 11:13:40 -- STEP: 30/52 -- GLOBAL_STEP: 3150[0m
+     | > loss_text_ce: 0.01664089970290661  (0.019235983739296594)
+     | > loss_mel_ce: 1.082695722579956  (1.2043797691663112)
+     | > loss: 0.013087340630590916  (0.014566854542742173)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3346  (0.3284728129704793)
+     | > loader_time: 0.0059  (0.013149770100911458)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.03415107727050781 [0m(+0.006090641021728516)
+     | > avg_loss_text_ce:[91m 0.022367902100086212 [0m(+2.421438694000244e-06)
+     | > avg_loss_mel_ce:[91m 2.4201149940490723 [0m(+0.021867990493774414)
+     | > avg_loss:[91m 2.4424829483032227 [0m(+0.02187037467956543)
+
+
+[4m[1m > EPOCH: 62/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:13:49) [0m
+
+[1m   --> TIME: 2024-05-07 11:14:07 -- STEP: 28/52 -- GLOBAL_STEP: 3200[0m
+     | > loss_text_ce: 0.021359844133257866  (0.018952834087290933)
+     | > loss_mel_ce: 1.2704397439956665  (1.1648409047297068)
+     | > loss: 0.015378566458821297  (0.014092783077753015)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3579  (0.32276597193309237)
+     | > loader_time: 0.0215  (0.07055496317999703)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.028545141220092773 [0m(-0.005605936050415039)
+     | > avg_loss_text_ce:[91m 0.02237088792026043 [0m(+2.985820174217224e-06)
+     | > avg_loss_mel_ce:[91m 2.4435386657714844 [0m(+0.02342367172241211)
+     | > avg_loss:[91m 2.465909481048584 [0m(+0.023426532745361328)
+
+
+[4m[1m > EPOCH: 63/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:14:19) [0m
+
+[1m   --> TIME: 2024-05-07 11:14:36 -- STEP: 26/52 -- GLOBAL_STEP: 3250[0m
+     | > loss_text_ce: 0.01932559534907341  (0.018827260830081422)
+     | > loss_mel_ce: 1.122925043106079  (1.166949178163822)
+     | > loss: 0.01359822228550911  (0.014116386345659312)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2577  (0.29954364666571975)
+     | > loader_time: 0.0087  (0.161347719339224)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.028131723403930664 [0m(-0.0004134178161621094)
+     | > avg_loss_text_ce:[91m 0.02237394079566002 [0m(+3.0528753995895386e-06)
+     | > avg_loss_mel_ce:[91m 2.467290163040161 [0m(+0.023751497268676758)
+     | > avg_loss:[91m 2.489664077758789 [0m(+0.023754596710205078)
+
+
+[4m[1m > EPOCH: 64/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:14:46) [0m
+
+[1m   --> TIME: 2024-05-07 11:15:01 -- STEP: 24/52 -- GLOBAL_STEP: 3300[0m
+     | > loss_text_ce: 0.018952330574393272  (0.01905923484203716)
+     | > loss_mel_ce: 1.2018921375274658  (1.1152471875150998)
+     | > loss: 0.01453386340290308  (0.013503648340702057)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2579  (0.31201762954394024)
+     | > loader_time: 0.0144  (0.01228189468383789)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.028605937957763672 [0m(+0.0004742145538330078)
+     | > avg_loss_text_ce:[91m 0.022377418354153633 [0m(+3.4775584936141968e-06)
+     | > avg_loss_mel_ce:[91m 2.491774082183838 [0m(+0.024483919143676758)
+     | > avg_loss:[91m 2.5141515731811523 [0m(+0.02448749542236328)
+
+
+[4m[1m > EPOCH: 65/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:15:14) [0m
+
+[1m   --> TIME: 2024-05-07 11:15:29 -- STEP: 22/52 -- GLOBAL_STEP: 3350[0m
+     | > loss_text_ce: 0.01918509416282177  (0.019521353088996628)
+     | > loss_mel_ce: 1.1100507974624634  (1.1209511052478442)
+     | > loss: 0.013443284668028355  (0.01357705323872241)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2347  (0.35784492709419946)
+     | > loader_time: 0.0318  (0.1048413406718861)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[92m 0.026971101760864258 [0m(-0.001634836196899414)
+     | > avg_loss_text_ce:[91m 0.022382117807865143 [0m(+4.699453711509705e-06)
+     | > avg_loss_mel_ce:[91m 2.5169482231140137 [0m(+0.02517414093017578)
+     | > avg_loss:[91m 2.539330244064331 [0m(+0.02517867088317871)
+
+
+[4m[1m > EPOCH: 66/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:15:41) [0m
+
+[1m   --> TIME: 2024-05-07 11:15:55 -- STEP: 20/52 -- GLOBAL_STEP: 3400[0m
+     | > loss_text_ce: 0.019006168469786644  (0.018929994199424982)
+     | > loss_mel_ce: 1.0863317251205444  (1.0654163300991055)
+     | > loss: 0.013158784247934818  (0.012908885022625327)
+     | > current_lr: 5e-06 
+     | > step_time: 0.3898  (0.3043914079666138)
+     | > loader_time: 0.0056  (0.11756936311721802)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.027599096298217773 [0m(+0.0006279945373535156)
+     | > avg_loss_text_ce:[91m 0.022387269884347916 [0m(+5.152076482772827e-06)
+     | > avg_loss_mel_ce:[91m 2.5419108867645264 [0m(+0.024962663650512695)
+     | > avg_loss:[91m 2.564298152923584 [0m(+0.02496790885925293)
+
+
+[4m[1m > EPOCH: 67/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:16:09) [0m
+
+[1m   --> TIME: 2024-05-07 11:16:23 -- STEP: 18/52 -- GLOBAL_STEP: 3450[0m
+     | > loss_text_ce: 0.018716800957918167  (0.01907619202716483)
+     | > loss_mel_ce: 1.1874799728393555  (1.1000002026557922)
+     | > loss: 0.014359485357999802  (0.013322338306655487)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2511  (0.36230829026963973)
+     | > loader_time: 0.0075  (0.109834008746677)
+
+
+[1m > EVALUATION [0m
+
+
+  [1m--> EVAL PERFORMANCE[0m
+     | > avg_loader_time:[91m 0.027927875518798828 [0m(+0.0003287792205810547)
+     | > avg_loss_text_ce:[91m 0.022393183782696724 [0m(+5.9138983488082886e-06)
+     | > avg_loss_mel_ce:[91m 2.567023277282715 [0m(+0.025112390518188477)
+     | > avg_loss:[91m 2.58941650390625 [0m(+0.025118350982666016)
+
+
+[4m[1m > EPOCH: 68/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-07-2024_10+34AM-49c9af8
+
+[1m > TRAINING (2024-05-07 11:16:37) [0m
+
+[1m   --> TIME: 2024-05-07 11:16:49 -- STEP: 16/52 -- GLOBAL_STEP: 3500[0m
+     | > loss_text_ce: 0.019422713667154312  (0.019103763857856393)
+     | > loss_mel_ce: 1.0211905241012573  (1.0023949220776558)
+     | > loss: 0.012388253584504128  (0.012160698941443115)
+     | > current_lr: 5e-06 
+     | > step_time: 0.2597  (0.3869803845882416)
+     | > loader_time: 0.0173  (0.010006695985794067)
+
+slurmstepd: error: *** JOB 20160055 ON midway3-0278 CANCELLED AT 2024-05-07T11:16:52 ***

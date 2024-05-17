@@ -1,0 +1,24 @@
+# conda environments:
+#
+                         /home/henryj/deepfake/venv
+base                  *  /software/python-anaconda-2022.05-el8-x86_64
+R                        /software/python-anaconda-2022.05-el8-x86_64/envs/R
+# conda environments:
+#
+                      *  /home/henryj/deepfake/venv
+base                     /software/python-anaconda-2022.05-el8-x86_64
+R                        /software/python-anaconda-2022.05-el8-x86_64/envs/R
+step 1
+step 2
+step 3
+step 4
+step 5
+step 6
+starting step 7: get model args
+starting step 8: set audio_config
+starting step 9: set training parameters
+starting step 10: init model
+>> DVAE weights restored from: /home/henryj/deepfake/training_data/scripts/run/training/XTTS_v2.0_original_model_files/dvae.pth
+starting step 11: load training samples
+ | > Found 22 files in /home/henryj/deepfake/training_data/MyTTSDataset
+starting step 12: init trainer

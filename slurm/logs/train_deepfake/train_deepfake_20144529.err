@@ -1,0 +1,32 @@
+ > Training Environment:
+ | > Backend: Torch
+ | > Mixed precision: False
+ | > Precision: float32
+ | > Current device: 0
+ | > Num. of GPUs: 1
+ | > Num. of CPUs: 48
+ | > Num. of Torch Threads: 1
+ | > Torch seed: 1
+ | > Torch CUDNN: True
+ | > Torch CUDNN deterministic: False
+ | > Torch CUDNN benchmark: False
+ | > Torch TF32 MatMul: False
+ > Start Tensorboard: tensorboard --logdir=/home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-06-2024_02+57PM-88d7f48
+
+ > Model has 518442047 parameters
+
+[4m[1m > EPOCH: 0/1000[0m
+ --> /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-06-2024_02+57PM-88d7f48
+ ! Run is removed from /home/henryj/deepfake/training_data/scripts/run/training/GPT_XTTS_v2.0_LJSpeech_FT-May-06-2024_02+57PM-88d7f48
+Traceback (most recent call last):
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/trainer/trainer.py", line 1833, in fit
+    self._fit()
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/trainer/trainer.py", line 1787, in _fit
+    self.eval_epoch()
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/trainer/trainer.py", line 1628, in eval_epoch
+    self.get_eval_dataloader(
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/trainer/trainer.py", line 990, in get_eval_dataloader
+    return self._get_loader(
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/trainer/trainer.py", line 914, in _get_loader
+    len(loader) > 0
+AssertionError:  ❗ len(DataLoader) returns 0. Make sure your dataset is not empty or len(dataset) > 0. 

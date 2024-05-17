@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/henryj/deepfake/training_data/scripts/train.py", line 199, in <module>
+    main()
+  File "/home/henryj/deepfake/training_data/scripts/train.py", line 172, in main
+    train_samples, eval_samples = load_tts_samples(
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/TTS/tts/datasets/__init__.py", line 133, in load_tts_samples
+    meta_data_eval, meta_data_train = split_dataset(meta_data_train, eval_size_per_dataset, eval_split_size)
+  File "/home/henryj/deepfake/venv/lib/python3.10/site-packages/TTS/tts/datasets/__init__.py", line 38, in split_dataset
+    eval_split_size > 0
+AssertionError:  [!] You do not have enough samples for the evaluation set. You can work around this setting the 'eval_split_size' parameter to a minimum of 0.045454545454545456
