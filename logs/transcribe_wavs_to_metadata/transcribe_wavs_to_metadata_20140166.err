@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/home/henryj/deepfake/training_data/scripts/transcribe_wavs_to_metadata.py", line 27, in <module>
-    for wavfile in os.listdir(path=DATASET_PATH + "wavs/"):
-FileNotFoundError: [Errno 2] No such file or directory: '/home/henryj/deepfake/training_data/MyTTSDataset/wavs/'

@@ -1,2 +1,0 @@
-/var/spool/slurm/d/job19955564/slurm_script: line 20: 1832994 Killed                  python /home/henryj/deepfake/training_data/scripts/train.py
-slurmstepd: error: Detected 1 oom-kill event(s) in StepId=19955564.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

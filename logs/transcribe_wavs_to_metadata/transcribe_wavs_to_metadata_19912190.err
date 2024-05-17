@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/home/henryj/deepfake/./training_data/scripts/transcribe_wavs_to_metadata.py", line 22, in <module>
-    f.write(DATASET_PATH + "wavs/" + wavfile + "|" + result.text)
-AttributeError: 'dict' object has no attribute 'text'
