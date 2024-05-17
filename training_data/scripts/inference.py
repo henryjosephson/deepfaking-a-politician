@@ -37,7 +37,7 @@ model.cuda()
 print("Computing speaker latents...")
 gpt_cond_latent, speaker_embedding = model.get_conditioning_latents(audio_path=[SPEAKER_REFERENCE])
 
-ottos_sentences = [
+stuff_to_say = [
 #    "Failure doesn’t mean you are a failure, it just means you haven’t succeeded yet.",
 #    "We will compare this recording against the audio you uploaded in the previous step to verify it’s your voice.",
 #    "A liquidity trap is caused when people hold cash because they expect an adverse event such as deflation, insufficient aggregate demand, or war.",
@@ -53,7 +53,7 @@ ottos_sentences = [
 
 print("Inference...")
 
-for s in ottos_sentences:
+for s in stuff_to_say:
     out = model.inference(
         s,
         "en",
