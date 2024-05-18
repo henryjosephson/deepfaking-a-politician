@@ -1,6 +1,6 @@
 Below are some specifics of how we measured the ‘cost’ components of our results. The definitions are mostly self-explanatory, but we have expanded on them for the sake of completeness and to include more specifics. 
 
-Time: Quantity of time expended on service research or model research and model creation, as tracked by productivity-monitoring service QBserve. 
+Time: Quantity of time expended on model research and model creation, as tracked by productivity-monitoring service QBserve. 
 
 Compute: Quantity of compute required for the creation and output generation of our homegrown TTS. We employed the University of Chicago’s Midway3 virtual machine for our model’s computation/processing, so we measured this metric via Midway units. 
 
