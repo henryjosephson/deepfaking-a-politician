@@ -133,8 +133,9 @@ To recreate our deepfake detector tests, as displayed in the writeup:
 
 5. Navigate to the University of Buffalo’s [Deepfake-O-Meter website](https://zinc.cse.buffalo.edu/ubmdfl/deep-o-meter/landing_page), and create a free account.
 
-6. Upload a given audio clip and select the Wroclaw University of Science and Technology's 2023 audio detector option. Select ‘I don’t know’ for whether or not you think a given clip is real or fake from the right-side menu. 
-    a. Note that, while we tested other detectors (see `evals/deepfake-detector/Automated Deepfake Detector Results.csv`), we decided to utilize only those results from the Wroclaw detector given their relative accuracy in deducing TTS and real audio. 
+6. Upload a given audio clip and select the Wroclaw University of Science and Technology's 2023 audio detector option. Select ‘I don’t know’ for whether or not you think a given clip is real or fake from the right-side menu.
+
+    While we tested other detectors, and included the results from the 2023 (and thus more recent) University of Buffalo and Naver Corporation detectors (see `evals/deepfake-detector/Automated Deepfake Detector Results.csv`), we decided to utilize only those results from the Wroclaw detector given their relative accuracy in assessing AI-probabilities for both TTS and real audio.
 
 7. Repeat this process for each sentence created by the three TTS methods. Note that all columns in `evals/deepfake-detector/Automated Deepfake Detector Results.csv` (except for ‘Real Audio’) segment our results by whether or not they belong to the ‘short sentences’ group or ‘phoneme-robust sentences’ group, as denoted by column ‘Clip Type’. 
 8. Take the mean of results according to their grouping (Wroclaw detector, TTS method, and audio clip type). 
