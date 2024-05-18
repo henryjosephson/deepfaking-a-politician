@@ -1,0 +1,4 @@
+This timesheet reflects all the time we spent
+creating the deepfakes, and doesn't reflect
+time we spent doing other project-related
+things, like testing, surveying, etc.
