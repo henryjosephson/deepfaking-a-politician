@@ -5,4 +5,3 @@ Time: Quantity of time expended on model research and model creation, as tracked
 Compute: Quantity of compute required for the creation and output generation of our homegrown TTS. We employed the University of Chicago’s Midway3 virtual machine for our model’s computation/processing, so we measured this metric via Midway units. 
 
 Money: The financial cost of utilizing a given TTS method, including cloud computing services or other paid variables that were utilized in creation. All services were free except for ElevenLabs. Utilizing Midway usage would have a financial cost had Professor Trimble not been kind enough to let us use some of his Midway credits, so we include this caveat in the results table. 
-
